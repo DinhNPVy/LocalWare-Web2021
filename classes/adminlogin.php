@@ -6,7 +6,6 @@ include '../lib/database.php';
 include '../helper/format.php';
 ?>
 
-
 <?php
 
 class adminlogin
@@ -38,7 +37,7 @@ class adminlogin
         }
         // neu ng dung nhap thi doi chieu voi csdl
         else {
-            $query = "SELECT * FROM tbl_admin WHERE adminUser = '$adminUser' AND adminPass = '$adminPass'";
+            $query = "SELECT * FROM tbl_admin WHERE adminUser = '$adminUser' AND adminPass = '$adminPass' LIMIT 1";
             $result = $this->db->select($query);
 
             if ($result != false) {

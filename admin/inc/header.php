@@ -1,14 +1,9 @@
 <?php
-include '../lib/session.php';
-//Session::checkSession();
+require './../lib/session.php';
+Session::checkSession();
 ?>
 
-<?php
-header("Cache-control: no-cache, must-revalidate");
-header("Pragma: no-cache");
-header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
-header("Cache-Control: max-age=26082001");
-?>
+
 
 <head>
     <meta http-equiv="content-type" content="text/hmtl" charset="utf-8" />
@@ -33,6 +28,9 @@ header("Cache-Control: max-age=26082001");
             <a href="index.php"><img src="./../img/Blue Calculator Icon Business Logo.png" alt="" style="height: 100px; border-radius: 100px" /></a>
         </div>
         <div class="header-top-right">
+            <div class="sayhi">
+                <p>Hello <?php echo Session::get('adminName') ?></p>
+            </div>
             <?php
             if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                 Session::destroy();
