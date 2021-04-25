@@ -1,5 +1,5 @@
 <?php
-require './../lib/session.php';
+include "../lib/session.php";
 Session::checkSession();
 ?>
 
@@ -32,7 +32,7 @@ Session::checkSession();
                 <p>Hello <?php echo Session::get('adminName') ?></p>
             </div>
             <?php
-            if (isset($_GET['action']) && $_GET['action'] == 'logout') {
+            if (isset($_GET["action"]) && $_GET["action"] === "logout") {
                 Session::destroy();
             }
 

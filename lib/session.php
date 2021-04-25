@@ -4,7 +4,7 @@ class Session
     // luu phien giao dich
     public static function init()
     {
-        if (version_compare(phpversion(), '5.1.0', '<')) {
+        if (version_compare(phpversion(), '5.4.0', '<')) {
             if (session_id() == '') {
                 session_start();
             }
@@ -31,7 +31,7 @@ class Session
     public static function checkSession()
     {
         self::init();
-        if (self::get("login") == false) {
+        if (self::get("adminlogin") == false) {
             self::destroy();
             header("Location:login.php"); // quay lai trang dang nhap
         }

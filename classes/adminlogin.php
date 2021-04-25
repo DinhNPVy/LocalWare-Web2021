@@ -1,9 +1,11 @@
 <?php
-include '../lib/session.php';
+include "./../lib/session.php";
 // kiem tra Login , neu true thi tra ve index
+$filepath = realpath(dirname(__FILE__));
+include_once($filepath . '/../lib/database.php');
+include_once($filepath . '/../helper/format.php');
+
 Session::checkLogin();
-include '../lib/database.php';
-include '../helper/format.php';
 ?>
 
 <?php
@@ -48,7 +50,7 @@ class adminlogin
                 Session::set('adminId', $value['adminId']);
                 Session::set('adminUser', $value['adminUser']);
                 Session::set('adminName', $value['adminName']);
-                header('Location:index.php');
+                header("Location:index.php");
             } else {
                 $alert = "User and Pass must me not empty";
                 return $alert;

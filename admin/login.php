@@ -1,11 +1,11 @@
 <?php
-include '../classes/adminlogin.php';
+include "./../classes/adminlogin.php";
 ?>
 
 <?php
 $class = new adminlogin();
 // kiem tra
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $adminUser = $_POST['adminUser'];
 
     $adminPass = md5($_POST['adminPass']);
@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="js/bootstrap.js">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/stylelogin.css">
+    <link rel="stylesheet" href="css/stylelogin.css" media="screen">
 
     <script src="./js//jquery.js"></script>
     <title>Form</title>
@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <div class="col-lg-7 ">
                             <div class="fa fa-user">
 
-                                <input type="text" placeholder="Username" name="adminUser">
+                                <input type="text" placeholder="Username" name="adminUser" />
 
                             </div>
                         </div>
@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <div class="row m-1">
                         <div class="col-lg-7 ">
                             <div class="fa fa-lock" aria-hidden="true">
-                                <input type="password" placeholder="Password" name="adminPass">
+                                <input type="password" placeholder="Password" name="adminPass" />
                                 <span class="eye">
                                     <div class="fa fa-eye" onclick="showHidden()"></div>
                                 </span>
@@ -96,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <div class="row m-1">
                         <div class="col-lg-8">
                             <label class="form-check-label">
-                                <input name="remember-m" type="checkbox" class="form-check-input"> Remember me
+                                <input name="remember-m" type="checkbox" class="form-check-input" /> Remember me
                             </label>
                             <a onclick="checkForm()" href="#" data-hind="click: $root.ToggleResetForm" class="btn btn-link btn-sm btn-lg" style="padding-right: 0; padding-left: 0;">
                                 Have you forgotten your password?
@@ -108,7 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <div class="row m-1">
                         <div class="col-lg-7">
 
-                            <input type="submit" class="btn btn-primary btn-rounded btn-block" style="padding-right: 18px; padding-left: 18px;" value="Login"></input>
+                            <input type="submit" class="btn btn-primary btn-rounded btn-block" style="padding-right: 18px; padding-left: 18px;" value="Login" />
 
                         </div>
                     </div>
