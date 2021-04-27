@@ -14,7 +14,7 @@ Session::checkSession();
     <link rel="stylesheet" type="text/css" href="../css/materialdesignicons.min.css">
     <link rel="stylesheet" type="text/css" href="../css/style.min.css">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Doppio+One">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="./../css/style.css">
     <script type="text/javascript">
         $(document).ready(function($) {
             //code
@@ -29,7 +29,8 @@ Session::checkSession();
         </div>
         <div class="header-top-right">
             <div class="sayhi">
-                <p>Hello <?php echo Session::get('adminName') ?></p>
+                <p>Hello <?php echo Session::get('adminName')
+                            ?></p>
             </div>
             <?php
             if (isset($_GET["action"]) && $_GET["action"] === "logout") {
