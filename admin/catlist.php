@@ -1,14 +1,5 @@
 <?php include 'inc/header.php'; ?>
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
 <?php include 'inc/sliderbar.php'; ?>
 
 <?php
@@ -16,11 +7,22 @@ include '../classes/category.php';
 ?>
 <?php
 $cat = new category();
+if (isset($_GET['delid'])) {
+    $id = $_GET['delid'];
+    $delCat = $cat->del_category($id);
+} //else {
+//     echo "<script>window.location = 'catlist.php'</script>";
+// }
 ?>
 <div class="grid_10">
     <div class="box round first grid">
         <h2>Danh sách sản phẩm</h2>
         <div class="block">
+            <?php
+            if (isset($delCat)) {
+                echo $delCat;
+            }
+            ?>
             <table class="data display datatable" id="example">
                 <thead>
                     <tr>
@@ -42,7 +44,7 @@ $cat = new category();
                             <tr class="odd gradeX">
                                 <td><?php echo $i; ?></td>
                                 <td><?php echo $result['catName']; ?></td>
-                                <td><a href="cateedit.php?catid=<?php echo $result['catId'] ?>">Edit</a> | <a href="cateedit.php?catid=<?php echo $result['catId'] ?>">Delete</a></td>
+                                <td><a href="cateedit.php?catid=<?php echo $result['catId'] ?>">Edit</a> | <a onclick="return confirm('Are you want to delete?')" href="?delid=<?php echo $result['catId'] ?>">Delete</a></td>
                             </tr>
                     <?php
                         }

@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/stylesliderbar.css">
+    <script src="js/sliderbar.js"></script>
 </head>
 
 <body>
@@ -14,42 +15,206 @@
 
 </html>
 
-<div class="box sidemenu">
-    <div class="block" id="section-menu">
-        <ul class="section-menu">
-            <li><a href="#" class="meuu-item">Site Option</a>
-                <ul class="submenu">
-                    <li><a href="titleslogan.php">Title & Slogan</a></li>
-                    <li><a href="social.php">Social Media</a></li>
-                    <li><a href="copyright.php">Copyright</a></li>
-                </ul>
+<div class="wrapper">
+    <div class="navbar">
+        <ul>
+            <li><a href="#" class="a_parent">
+                    <div class="wrap">
+                        <span class="icon"></span>
+                        <span class="text">
+                            Danh mục
+                        </span>
+
+                    </div>
+                </a>
+
+                <div class="dd_menu">
+                    <ul>
+                        <li><a href="catadd.php" class="dd_menu_a">
+                                <div class="wrap">
+                                    <span class="icon"></span>
+                                    <span class="text">
+                                        Thêm danh mục
+                                    </span>
+
+                                </div>
+                            </a>
+                        </li>
+                        <li><a href="catlist.php" class="dd_menu_a">
+                                <div class="wrap">
+                                    <span class="icon"></span>
+                                    <span class="text">
+                                        Danh mục sản phẩm
+                                    </span>
+
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </li>
-            <li><a href="#" class="meuu-item">Update Pages</a>
-                <ul class="submenu">
-                    <li> <a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
+
+            <li><a href="#" class="a_parent">
+                    <div class="wrap">
+                        <span class="icon"></span>
+                        <span class="text">
+                            Thương hiệu
+                        </span>
+
+                    </div>
+                </a>
+                <div class="dd_menu">
+                    <ul>
+                        <li><a href="brandadd.php" class="dd_menu_a">
+                                <div class="wrap">
+                                    <span class="icon"></span>
+                                    <span class="text">
+                                        Thêm thương hiệu
+                                    </span>
+
+                                </div>
+                            </a>
+                        </li>
+                        <li><a href="brandlist.php" class="dd_menu_a">
+                                <div class="wrap">
+                                    <span class="icon"></span>
+                                    <span class="text">
+                                        Danh sách thương hiệu
+                                    </span>
+
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="#" class="a_parent">
+                    <div class="wrap">
+                        <span class="icon"></span>
+                        <span class="text">
+                            Sản phẩm
+                        </span>
+
+                    </div>
+                </a>
+                <div class="dd_menu">
+                    <ul>
+                        <li><a href="productadd.php" class="dd_menu_a">
+                                <div class="wrap">
+                                    <span class="icon"></span>
+                                    <span class="text">
+                                        Thêm sản phẩm
+                                    </span>
+
+                                </div>
+                            </a>
+                        </li>
+                        <li><a href="productlist.php" class="dd_menu_a">
+                                <div class="wrap">
+                                    <span class="icon"></span>
+                                    <span class="text">
+                                        Danh sách sản phẩm
+                                    </span>
+
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="#" class="a_parent">
+                    <div class="wrap">
+                        <span class="icon"></span>
+                        <span class="text">
+                            Danh mục
+                        </span>
+
+                    </div>
+                </a>
+                <div class="dd_menu">
+                    <ul>
+                        <li><a href="catadd.php" class="dd_menu_a">
+                                <div class="wrap">
+                                    <span class="icon"></span>
+                                    <span class="text">
+                                        Thêm danh mục
+                                    </span>
+
+                                </div>
+                            </a>
+                        </li>
+                        <li><a href="atlist.php" class="dd_menu_a">
+                                <div class="wrap">
+                                    <span class="icon"></span>
+                                    <span class="text">
+                                        Danh sách sản phẩm
+                                    </span>
+
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="#" class="a_parent">
+                    <div class="wrap">
+                        <span class="icon"></span>
+                        <span class="text">
+                            Danh mục
+                        </span>
+
+                    </div>
+                </a>
+                <div class="dd_menu">
+                    <ul>
+                        <li><a href="catadd.php" class="dd_menu_a">
+                                <div class="wrap">
+                                    <span class="icon"></span>
+                                    <span class="text">
+                                        Thêm danh mục
+                                    </span>
+
+                                </div>
+                            </a>
+                        </li>
+                        <li><a href="atlist.php" class="dd_menu_a">
+                                <div class="wrap">
+                                    <span class="icon"></span>
+                                    <span class="text">
+                                        Danh sách sản phẩm
+                                    </span>
+
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </li>
             <li><a href="#" class="meuu-item">Slider Option</a>
-                <ul class="submenu">
-                    <li><a href="addslider.php">Add Slider</a></li>
-                    <li><a href="sliderlist.php">Slider list</a></li>
+                <div class="dd_menu">
+                    <ul>
+                        <li><a href="catadd.php" class="dd_menu_a">
+                                <div class="wrap">
+                                    <span class="icon"></span>
+                                    <span class="text">
+                                        Thêm danh mục
+                                    </span>
 
-                </ul>
-            </li>
-            <li><a href="#" class="meuu-item">Danh mục sản phẩm </a>
-                <ul class="submenu">
-                    <li><a href="catadd.php">Thêm danh mục</a></li>
-                    <li><a href="catlist.php">Danh mục sản phẩm</a></li>
+                                </div>
+                            </a>
+                        </li>
+                        <li><a href="atlist.php" class="dd_menu_a">
+                                <div class="wrap">
+                                    <span class="icon"></span>
+                                    <span class="text">
+                                        Danh sách sản phẩm
+                                    </span>
 
-                </ul>
-            </li>
-            <li><a href="#" class="meuu-item">Product Option</a>
-                <ul class="submenu">
-                    <li><a href="addproduct.php">Add Product</a></li>
-                    <li><a href="productlist.php">Product List</a></li>
-
-                </ul>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </li>
         </ul>
     </div>

@@ -27,7 +27,7 @@ class category
 
 
         // 1 bien ket noi vs du lieu , bien thu hai ket noi co so du lieu
-        $catNamer = mysqli_real_escape_string($this->db->link, $catName);
+        $catName = mysqli_real_escape_string($this->db->link, $catName);
 
 
         // neu empty
@@ -65,7 +65,7 @@ class category
 
 
         // 1 bien ket noi vs du lieu , bien thu hai ket noi co so du lieu
-        $catNamer = mysqli_real_escape_string($this->db->link, $catName);
+        $catName = mysqli_real_escape_string($this->db->link, $catName);
         $id = mysqli_real_escape_string($this->db->link, $id);
 
         if (empty($catName)) {
@@ -87,7 +87,20 @@ class category
         }
     }
 
-    // EDIT SAN PHAM // 
+    public function del_category($id)
+    {
+        $query = "DELETE FROM tbl_category WHERE catId = '$id'";
+        $result = $this->db->delete($query);
+        if ($result) {
+            $alert = "<span class='Success'> Category Delete Successfully</span>";
+            return $alert;
+        } else {
+            $alert = "<span class='error'> Category  Delete Not Successfully</span>";
+            return $alert;
+        }
+    }
+
+    // EDIT SANPHAM // 
     public function getCateById($id)
     {
         $query = "SELECT * FROM tbl_category WHERE catId = '$id'";
@@ -95,4 +108,3 @@ class category
         return $result;
     }
 }
-?>
