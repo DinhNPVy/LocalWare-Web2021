@@ -107,4 +107,10 @@ class category
         $result = $this->db->select($query);
         return $result;
     }
+    public function show_category_fontend()
+    {
+        $query = "SELECT * FROM tbl_category order by catId desc";
+        $result = $this->db->select($query);
+        return $result;
+    }
 }

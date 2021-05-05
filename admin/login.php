@@ -71,9 +71,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="form-group">
                     <div class="row m-1">
                         <div class="col-lg-7 ">
-                            <div class="fa fa-user">
+                            <div class="fa fa-user">Username
 
-                                <input type="text" placeholder="Username" name="adminUser" />
+                                <input type="text" placeholder="Enter Your Username" name="adminUser" />
 
                             </div>
                         </div>
@@ -82,8 +82,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="form-group">
                     <div class="row m-1">
                         <div class="col-lg-7 ">
-                            <div class="fa fa-lock" aria-hidden="true">
-                                <input type="password" placeholder="Password" name="adminPass" />
+                            <div class="fa fa-lock" aria-hidden="true">Password
+                                <input type="password" placeholder="Enter Your Password" name="adminPass" />
                                 <span class="eye">
                                     <div class="fa fa-eye" onclick="showHidden()"></div>
                                 </span>
