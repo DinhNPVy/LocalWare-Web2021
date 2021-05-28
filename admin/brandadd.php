@@ -27,12 +27,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <table class="form">
                     <tr>
                         <td>
-                            <input type="text" name="brandName" placeholder="Vui lòng thêm thương hiệu sản phẩm..." class="medium" />
+                            <input class="col-lg-12 mb-2 form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus" type="text" name="brandName" placeholder="Thêm thương hiệu..." />
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <input type="submit" name="submit" value="Save">
+                            <input class="btn btn-primary" type="submit" name="submit" value="Save">
                         </td>
                     </tr>
                 </table>

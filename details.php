@@ -111,19 +111,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['submit'])) {
                                     <h5 class="d-inline-block">Color :</h5>
                                     <ul class="d-inline-block list-unstyled list-inline align-middle ms-4 mb-0">
                                         <li class="list-inline-item me-0">
-                                            <a href="#"><i class="mdi mdi-checkbox-intermediate fs-5 text-success"></i></a>
+                                            <a href="#"><i class="fa fa-square fs-5 text-success"></i></a>
                                         </li>
                                         <li class="list-inline-item me-0">
-                                            <a href="#"><i class="mdi mdi-checkbox-intermediate fs-5 text-primary"></i></a>
+                                            <a href="#"><i class="fa fa-square fs-5 text-primary"></i></a>
                                         </li>
                                         <li class="list-inline-item me-0">
-                                            <a href="#"><i class="mdi mdi-checkbox-intermediate fs-5 text-danger"></i></a>
+                                            <a href="#"><i class="fa fa-square fs-5 text-danger"></i></a>
                                         </li>
                                         <li class="list-inline-item me-0">
-                                            <a href="#"><i class="mdi mdi-checkbox-intermediate fs-5 text-warning"></i></a>
+                                            <a href="#"><i class="fa fa-square fs-5 text-warning"></i></a>
                                         </li>
                                         <li class="list-inline-item">
-                                            <a href="#"><i class="mdi mdi-checkbox-intermediate fs-5 text-dark"></i></a>
+                                            <a href="#"><i class="fa fa-square fs-5 text-dark"></i></a>
                                         </li>
 
                                     </ul>
@@ -163,7 +163,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['submit'])) {
 
                             ?>
                                     <div class="tab-content border-bottom pt-4" id="nav-tabContent">
-                                        <li><a href="productbycat.php?catId=<?php echo $result_allcat['catId'] ?>"><?php echo $result_allcat['catName'] ?></a></li>
+                                        <li><a href="productbycat.php?catid=<?php echo $result_allcat['catId'] ?>"><?php echo $result_allcat['catName'] ?></a></li>
                                     </div>
                             <?php
                                 }
@@ -202,64 +202,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['submit'])) {
                         ?>
 
 
-        <!-- end nav -->
-        <div>
-            <h4 class="mt-5 mb-3">Add Your Review</h4>
-            <form method="post">
-                <div class="row g-4 mb-2">
-                    <div class="col-lg-6">
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" placeholder="Your name">
-                            <label class="text-muted">Your name</label>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="form-floating mb-3">
-                            <input type="email" class="form-control" placeholder="Your email">
-                            <label class="text-muted">Email address</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row g-4 mb-2">
-                    <div class="col-lg-12">
-                        <div class="form-floating mb-3">
-                            <textarea type="text" class="form-control" placeholder="Your Message...." style="height: 100px"></textarea>
-                            <label class="text-muted">Your Review</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <h5 class="align-middle">Add Your Review :
-                        <ul class="list-unstyled list-inline mt-2">
-                            <li class="list-inline-item me-0">
-                                <i class="mdi mdi-star fs-17 text-warning"></i>
-                            </li>
-                            <li class="list-inline-item me-0">
-                                <i class="mdi mdi-star fs-17 text-warning"></i>
-                            </li>
-                            <li class="list-inline-item me-0">
-                                <i class="mdi mdi-star fs-17 text-warning"></i>
-                            </li>
-                            <li class="list-inline-item me-0">
-                                <i class="mdi mdi-star fs-17 text-warning"></i>
-                            </li>
-                            <li class="list-inline-item me-0">
-                                <i class="mdi mdi-star-half-full fs-17 text-warning"></i>
-                            </li>
-                        </ul>
-                    </h5>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12 mt-2">
-                        <input type="button" class="btn btn-primary" value="Send Review" />
-                    </div>
-                </div>
-            </form>
-        </div>
             </div>
-        </div>
-        <!-- end row -->
-    </div>
 </section>
 <!-- end detail tab -->
 

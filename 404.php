@@ -1,29 +1,25 @@
-<?php
-include 'inc/header.php'; ?>
-<?php
-include 'inc/sliderbar.php'; ?>
-<style>
-    .not_found {
-        text-align: center;
+<link href="https://fonts.googleapis.com/css?family=Montserrat:700,900" rel="stylesheet">
+<link rel="stylesheet" href="css/style404.css">
 
-    }
 
-    h3 {
-        color: red;
-    }
-</style>
-<div class="main">
-    <div class="content">
-        <div class="cartoption">
-            <div class="cartpage">
-                <div class="not_found">
-                    <h3>Page doesn't found</h3>
-                </div>
-            </div>
+<div id="notfound">
+    <div class="notfound">
+        <div class="notfound-404">
+            <h1>404</h1>
+            <h2>Page Not Gound</h2>
         </div>
-        <div class="clear"></div>
+        <a href="index.php">Homepage</a>
     </div>
 </div>
-<?php
-include 'inc/footer.php';
-?>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-23581568-13');
+</script>

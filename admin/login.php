@@ -1,5 +1,5 @@
 <?php
-include "./../classes/adminlogin.php";
+include "../classes/adminlogin.php";
 ?>
 
 <?php
@@ -14,26 +14,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-
-<!-- <div class="container">
-        <section id="content">
-            <form action="login.php" method="post">
-                <h1>Admin Login</h1>
-                <div>
-                    <input type="text" placeholder="Username" required="" name="adminUser" />
-                </div>
-                <div>
-                    <input type="password" placeholder="Password" required="" name="adminPass" />
-                </div>
-                <div>
-                    <input type="submit" value="Login" />
-                </div>
-            </form>
-            <div class="button">
-                <a href="#">Training with live project</a>
-            </div>
-        </section>
-    </div> -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,21 +22,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="js/bootstrap.js">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../js/bootstrap.js">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/stylelogin.css" media="screen">
+    <link rel="stylesheet" href="../css/stylelogin.css" media="screen">
 
-    <script src="./js//jquery.js"></script>
+    <script src="./js/jquery.js"></script>
     <title>Form</title>
 
 
 
 </head>
+<style>
+    .background {
+        background-image: url("../img/background.png");
+        background-size: cover;
+        background-position: center center;
+        width: 100%;
+        height: 100vh;
+    }
+
+    .container {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 300px;
+        margin: auto;
+        font-family: arial;
+
+
+    }
+</style>
 
 <body>
     <div class="background">
-        <img src="./../img/Blue, Pink and Orange Circle Games Influencer Facebook Cover.png" alt="">
+
 
         <div class="container">
 
@@ -70,10 +68,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         ?></span>
                 <div class="form-group">
                     <div class="row m-1">
-                        <div class="col-lg-7 ">
+                        <div class="col-lg-12 ">
                             <div class="fa fa-user">Username
 
-                                <input type="text" placeholder="Enter Your Username" name="adminUser" />
+                                <input class="col-lg-4 mb-2 form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus" type="text" placeholder="Enter Your Username" name="adminUser" />
 
                             </div>
                         </div>
@@ -81,9 +79,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
                 <div class="form-group">
                     <div class="row m-1">
-                        <div class="col-lg-7 ">
-                            <div class="fa fa-lock" aria-hidden="true">Password
-                                <input type="password" placeholder="Enter Your Password" name="adminPass" />
+                        <div class="col-lg-12 ">
+                            <div class="fa fa-lock">Password
+                                <input id="pass" class="col-lg-4 mb-2 form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus" type="password" placeholder="Enter Your Password" name="adminPass" />
                                 <span class="eye">
                                     <div class="fa fa-eye" onclick="showHidden()"></div>
                                 </span>
@@ -94,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
                 <div class="form-group form-check">
                     <div class="row m-1">
-                        <div class="col-lg-8">
+                        <div class="col-lg-10">
                             <label class="form-check-label">
                                 <input name="remember-m" type="checkbox" class="form-check-input" /> Remember me
                             </label>
@@ -106,7 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
                 <div class="form-group form-check">
                     <div class="row m-1">
-                        <div class="col-lg-7">
+                        <div class="col-lg-12">
 
                             <input type="submit" class="btn btn-primary btn-rounded btn-block" style="padding-right: 18px; padding-left: 18px;" value="Login" />
 
@@ -115,10 +113,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
             </form>
 
-
         </div>
 
-        <!-- <script>
+    </div>
+    <script src="js/thatim.js"></script>
+    <script src="../js/showpass.js"></script>
+    <!-- <script>
             $(function(){
                 $("#loginForm").validate({
                     rules:{
@@ -137,18 +137,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             });
         </script>
             <script>
-                // js
-                isBool = true;
-                function showHidden(){
-                if(isBool){
-                document.getElementById("txtPass").setAttribute("type", "text")
-                isBool = false;
-                } else{
-                document.getElementById("txtPass").setAttribute("type", "password")
-                isBool = true;
-                }
-                }
-            
+              
                 
                 function getLogin()
                 {

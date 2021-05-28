@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
 ?>
 <div class="gird_10">
     <div class="box round first grid">
-        <h2>Thêm sản phẩm</h2>
+        <h2>Edit Product</h2>
         <div class="block">
             <?php
             if (isset($updateProduct)) {
@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
                                     <label for="">Name</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="productName" value="<?php echo $res_product['productName'] ?>" class="medium" />
+                                    <input class="col-lg-4 mb-2 form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus" type="text" name="productName" value="<?php echo $res_product['productName'] ?>" class="medium" />
                                 </td>
                             </tr>
                             <tr>
@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
                                     <label for="">Category</label>
                                 </td>
                                 <td>
-                                    <select name="category" id="select">
+                                    <select class="col-lg-4 mb-2 form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus" name="category" id="select">
                                         <option value="">-----SELECT CATEGORY-----</option>
                                         <?php
                                         $cat = new category();
@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
 
                                 </td>
                                 <td>
-                                    <input type="text" name="price" value="<?php echo $res_product['price'] ?> " class=" medium" />
+                                    <input class="col-lg-4 mb-2 form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus" type="text" name="price" value="<?php echo $res_product['price'] ?> " class=" medium" />
                                 </td>
                             </tr>
                             <tr>
@@ -102,7 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
                                 </td>
                                 <td>
                                     <img src="uploads/<?php echo $res_product['image'] ?>" width="120">
-                                    <input type="file" name="image" />
+                                    <input class="col-lg-4 mb-2 form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus" type="file" name="image" />
                                 </td>
                             </tr>
                             <tr>
@@ -111,7 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
 
                                 </td>
                                 <td>
-                                    <select name="type" id="select">
+                                    <select class="col-lg-4 mb-2 form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus" name="type" id="select">
                                         <option>Select Type</option>
                                         <?php
                                         if ($res_product['type'] == 0) {
@@ -134,7 +134,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
                                     <label for="">Brand</label>
                                 </td>
                                 <td>
-                                    <select name="brand" id="select">
+                                    <select class="col-lg-4 mb-2 form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus" name="brand" id="select">
                                         <option value="">-----SELECT BRAND-----</option>
                                         <?php
                                         $brand = new brand();
@@ -160,7 +160,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
                             <tr>
                                 <td></td>
                                 <td>
-                                    <input type="submit" name="submit" value="Update">
+                                    <input class="btn btn-primary" type="submit" name="submit" value="Update">
                                 </td>
                             </tr>
                         </table>

@@ -40,12 +40,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <table class="form">
                             <tr>
                                 <td>
-                                    <input type="text" value="<?php echo $result["catName"]; ?>" name="catName" placeholder="Vui lòng sửa danh mục sản phẩm..." class="medium" />
+                                    <input class="col-lg-4 mb-2 form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus" type="text" value="<?php echo $result["catName"]; ?>" name="catName" placeholder="Vui lòng sửa danh mục sản phẩm..." class="medium" />
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="submit" name="submit" value="Update" />
+                                    <input class="btn btn-primary" type="submit" name="submit" value="Update" />
                                 </td>
                             </tr>
                         </table>

@@ -171,7 +171,7 @@ class products
     }
     public function getProductFeathered()
     {
-        $query = "SELECT * FROM tbl_product where type = '0'";
+        $query = "SELECT * FROM tbl_product where type = '1'";
         $result = $this->db->select($query);
         return $result;
     }

@@ -1,5 +1,5 @@
 <?php
-include "./../lib/session.php";
+include "../lib/session.php";
 // kiem tra Login , neu true thi tra ve index
 $filepath = realpath(dirname(__FILE__));
 include_once($filepath . '/../lib/database.php');

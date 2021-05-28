@@ -4,7 +4,7 @@ class Session
     // luu phien giao dich
     public static function init()
     {
-        if (version_compare(phpversion(), '5.4.0', '<')) {
+        if (version_compare(phpversion(), '7.3.27', '<')) {
             if (session_id() == '') {
                 session_start();
             }
@@ -33,7 +33,8 @@ class Session
         self::init();
         if (self::get("adminlogin") == false) {
             self::destroy();
-            header("Location:login.php"); // quay lai trang dang nhap
+            // header("Location:../admin\demo\horizontal-default\login.php"); // quay lai trang dang nhap
+            '<script>window.location = login.php</script>';
         }
     }
 
@@ -49,5 +50,13 @@ class Session
     {
         session_destroy();
         header("Location:login.php");
+        // '<script>window.location = login.php</script>';
+    }
+    public static function checkSignin()
+    {
+        self::init();
+        if (self::get("customer_signin") == true) {
+            header("Location:order.php");
+        }
     }
 }

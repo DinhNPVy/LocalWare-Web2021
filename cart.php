@@ -1,5 +1,5 @@
 <?php
-include('inc/header.php');
+include 'inc/header.php';
 
 
 ?>
@@ -98,7 +98,7 @@ if (!isset($_GET['id'])) {
 
                                                         <td><?php echo $result['productName'] ?></td>
                                                         <td><img height="150px" src="admin/uploads/<?php echo $result['image'] ?>" alt=""></td>
-                                                        <td><?php echo $result['price'] ?></td>
+                                                        <td><?php echo $result['price'] . ' ' . 'VNĐ' ?></td>
                                                         <td>
                                                             <form action="" method="post">
                                                                 <input type="hidden" name="cartId" value="<?php echo $result['cartId'] ?>" />
@@ -117,7 +117,7 @@ if (!isset($_GET['id'])) {
                                                         <td>
                                                             <?php
                                                             @$total = $result['price'] * $result['quantity'];
-                                                            echo $total;
+                                                            echo $total . ' ' . 'VNĐ';
                                                             ?>
                                                         <td><a href="?cartid=<?php echo $result['cartId'] ?>">Remove</a></td>
                                                         </td>
@@ -146,13 +146,13 @@ if (!isset($_GET['id'])) {
 
                                         <div class="col-lg-6 mt-4">
                                             <div class="mb-3 row g-2 align-items-center">
-                                                <label for="inputCode" class="col-sm-3 col-3 col-form-label text-uppercase fw-medium"><i class="mdi mdi-tag-multiple fs-18 align-middle"></i> Coupens</label>
+                                                <!-- <label for="inputCode" class="col-sm-3 col-3 col-form-label text-uppercase fw-medium"><i class="mdi mdi-tag-multiple fs-18 align-middle"></i> Coupens</label>
                                                 <div class="col-sm-6 col-5">
                                                     <input type="text" class="form-control border" id="inputCode">
-                                                </div>
-                                                <div class="col-sm-3 col-4">
-                                                    <a href="#" class="btn btn-primary">Check</a>
-                                                </div>
+                                                </div> -->
+                                                <!-- <div class="col-sm-3 col-4">
+                                                    <a href="payment.php" class="btn btn-primary">Check</a>
+                                                </div> -->
                                             </div>
                                         </div>
                                         <div class="col-lg-4 offset-lg-2 mt-4">
@@ -163,7 +163,7 @@ if (!isset($_GET['id'])) {
                                                     </li>
                                                     <li class="list-inline-item float-end"><?php
 
-                                                                                            echo $subtotal;
+                                                                                            echo $subtotal . ' ' . 'VNĐ';
                                                                                             Session::set('sum', $subtotal);
                                                                                             Session::set('qty', $qty);
                                                                                             ?></li>
@@ -176,7 +176,7 @@ if (!isset($_GET['id'])) {
                                                 </ul>
                                                 <ul class="list-unstyled list-inline border-bottom py-3 mb-0">
                                                     <li class="list-inline-item">
-                                                        <h5 class="fs-15 mb-0 fw-medium">Vat :</h5>
+                                                        <h5 class="fs-15 mb-0 fw-medium">Vat : 20% (<?php echo $vat = $subtotal * 0.2 . ' ' . 'VNĐ' ?>)</h5>
                                                     </li>
                                                     <li class="list-inline-item float-end">
                                                         <?php
@@ -186,7 +186,13 @@ if (!isset($_GET['id'])) {
                                                 </ul>
                                                 <ul class="list-unstyled list-inline py-3 mb-0">
                                                     <li class="list-inline-item">
-                                                        <h5 class="fs-16 mb-0 fw-semibold">Total :</h5>
+                                                        <h5 class="fs-16 mb-0 fw-semibold">Total :
+                                                            <?php
+                                                            $vat = $subtotal * 0.2;
+                                                            $total = $subtotal + $vat;
+                                                            echo $total . ' ' . 'VNĐ';
+                                                            ?>
+                                                        </h5>
                                                     </li>
                                                     <li class="list-inline-item fs-16 fw-medium float-end">
                                                         <?php
@@ -195,7 +201,7 @@ if (!isset($_GET['id'])) {
                                                     </li>
                                                 </ul>
 
-                                                <a href="#" class="btn btn-primary mt-3 float-end">Proceed To Checkout</a>
+                                                <a href="payment.php" class="btn btn-primary mt-3 float-end">Proceed To Checkout</a>
 
                                             </div>
 
@@ -229,5 +235,5 @@ if (!isset($_GET['id'])) {
 
 </html>
 <?php
-include('inc/footer.php');
+include 'inc/footer.php';
 ?>

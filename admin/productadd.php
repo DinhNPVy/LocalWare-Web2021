@@ -11,6 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     $insertProduct = $product->insert_product($_POST, $_FILES);
 }
 ?>
+<link rel="stylesheet" href="css/layout.css">
 <div class="gird_10">
     <div class="box round first grid">
         <h2>Thêm sản phẩm</h2>
@@ -27,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
                             <label for="">Name</label>
                         </td>
                         <td>
-                            <input type="text" name="productName" placeholder="Enter Product Name..." class="medium" />
+                            <input class="col-lg-4 mb-2 form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus" type="text" name="productName" placeholder="Enter Product Name..." class="medium" />
                         </td>
                     </tr>
                     <tr>
@@ -35,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
                             <label for="">Category</label>
                         </td>
                         <td>
-                            <select name="category" id="select">
+                            <select class="col-lg-4 mb-2 form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus" name="category" id="select">
                                 <option value="">-----SELECT CATEGORY-----</option>
                                 <?php
                                 $cat = new category();
@@ -69,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
 
                         </td>
                         <td>
-                            <input type="text" name="price" placeholder="Enter Price..." class="medium" />
+                            <input class="col-lg-4 mb-2 form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus" type="text" name="price" placeholder="Enter Price..." class="medium" />
                         </td>
                     </tr>
                     <tr>
@@ -77,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
                             <label for="">Upload Image</label>
                         </td>
                         <td>
-                            <input type="file" name="image" />
+                            <input class="col-lg-4 mb-2 form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus" type="file" name="image" />
                         </td>
                     </tr>
                     <tr>
@@ -86,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
 
                         </td>
                         <td>
-                            <select name="type" id="select">
+                            <select class="col-lg-4 mb-2 form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus" name=" type" id="select">
                                 <option>Select Type</option>
                                 <option value="1">Featured</option>
                                 <option value="0">Non-Featured</option>
@@ -98,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
                             <label for="">Brand</label>
                         </td>
                         <td>
-                            <select name="brand" id="select">
+                            <select class="col-lg-4 mb-2 form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus" name=" brand" id="select">
                                 <option value="">-----SELECT BRAND-----</option>
                                 <?php
                                 $brand = new brand();
@@ -120,7 +121,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
                     <tr>
                         <td></td>
                         <td>
-                            <input type="submit" name="submit" value="Save">
+                            <input class="btn btn-primary" type="submit" name="submit" value="Save">
                         </td>
                     </tr>
                 </table>
