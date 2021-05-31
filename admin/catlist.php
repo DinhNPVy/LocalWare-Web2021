@@ -1,5 +1,6 @@
-<?php include '../admin/demo/horizontal-default/index.php'; ?>
+<?php include 'inc/header.php'; ?>
 
+<?php include 'inc/sliderbar.php'; ?>
 
 
 <?php
