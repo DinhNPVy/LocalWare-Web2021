@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $insertCat = $cat->insert_category($catName);
 }
 ?>
-
+<link rel="stylesheet" href="css/category.css">
 <div class="row">
     <div class="card-col col-xl-3 col-lg-3 col-md-3 col-6">
         <div class="card-body">
@@ -32,15 +32,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     echo $insertCat;
                                 }
                                 ?>
-                                <form class="cmxform" id="commentForm" method="get" action="#">
-                                    <fieldset>
-                                        <div class="form-group">
+                                <form action="catadd.php" method="POST">
 
-                                            <input class="col-lg-12 mb-2 form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus" type="text" name="catName" placeholder="Thêm danh mục...">
-                                        </div>
+                                    <div class="category">
 
-                                        <input class="btn btn-primary" type="submit" name="submit" value="Save">
-                                    </fieldset>
+                                        <input class="col-lg-12 mb-2 form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus" type="text" name="catName" placeholder="Thêm danh mục...">
+                                    </div>
+
+                                    <input class="btn btn-primary" type="submit" name="submit" value="Save">
+
                                 </form>
                             </div>
                         </div>

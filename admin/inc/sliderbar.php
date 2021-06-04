@@ -7,6 +7,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="css/stylesliderbar.css?v=<?php echo time() ?>">
    <script src="js/sliderbar.js"></script>
+
  </head>
 
  <body>
@@ -16,7 +17,7 @@
          <li>
            <a href="#" class="a_parent">
              <div class="wrap">
-               <span class="icon"></span>
+               <span class="icon"><img src="img/clipboard-list-solid.svg" alt="" style="height: 20px;"></span>
                <span class="text"> DANH MỤC </span>
              </div>
            </a>
@@ -51,7 +52,7 @@
 
          <li><a href="#" class="a_parent">
              <div class="wrap">
-               <span class="icon"></span>
+               <span class="icon"><img src="img/code-branch-solid.svg" style="height: 20px;" alt=""></span>
                <span class="text">
                  THƯƠNG HIỆU
                </span>
@@ -85,7 +86,7 @@
          </li>
          <li><a href="#" class="a_parent">
              <div class="wrap">
-               <span class="icon"></span>
+               <span class="icon"><img src="img/product-hunt-brands.svg" style="height: 20px;" alt=""></span>
                <span class="text">
                  SẢN PHẨM
                </span>

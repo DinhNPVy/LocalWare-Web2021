@@ -8,12 +8,27 @@ include_once($filepath . '/../classes/cart.php');
 include_once($filepath . '/../helper/format.php');
 ?>
 <?php
-// $product = new products();
-// $fm = new Format();
-// if (isset($_GET['productid'])) {
-//     $id = $_GET['productid'];
-//     $delProduct = $product->del_product($id);
-// }
+$ct = new cart();
+
+if (isset($_GET['shiftid'])) {
+    $id = $_GET['shiftid'];
+    $productid = $_GET['productId'];
+    $quantity = $_GET['quantity'];
+    $time = $_GET['time'];
+    $price = $_GET['price'];
+    $shifted = $ct->shifted($id, $productid, $quantity, $time, $price);
+}
+
+if (isset($_GET['delid'])) {
+    $id = $_GET['delid'];
+
+    $time = $_GET['time'];
+    $price = $_GET['price'];
+    $del_shifted = $ct->delShifted($id, $time, $price);
+}
+
+?>
+
 ?>
 <div class="main">
     <div class="container">
@@ -21,9 +36,14 @@ include_once($filepath . '/../helper/format.php');
             <div class="cartpage">
                 <h3>Danh sách sản phẩm</h3>
                 <?php
-                // if (isset($delProduct)) {
-                //     echo $delProduct;
-                // }
+                if (isset($shifted)) {
+                    echo $shifted;
+                }
+                ?>
+                <?php
+                if (isset($del_shifted)) {
+                    echo $del_shifted;
+                }
                 ?>
                 <section class="section">
                     <div class="container">
@@ -57,6 +77,9 @@ include_once($filepath . '/../helper/format.php');
                                                     Price
                                                 </th>
                                                 <th scope="col" class="fw-medium text-uppercase mt-2">
+                                                    Customer ID
+                                                </th>
+                                                <th scope="col" class="fw-medium text-uppercase mt-2">
                                                     Address
                                                 </th>
 
@@ -82,35 +105,41 @@ include_once($filepath . '/../helper/format.php');
 
                                                         <td><?php echo $result['quantity'] ?></td>
                                                         <td><?php echo $result['price'] . '' . 'VNĐ' ?></td>
+                                                        <td><?php echo $result['customer_id'] ?></td>
                                                         <td><a href="customer.php?customerid=<?php echo $result['customer_id'] ?>">View Address</a></td>
                                                         <td>
                                                             <?php
                                                             if ($result['status'] == 0) {
-
-
                                                             ?>
-                                                                <a href="?shiftid=<?php echo $result['id'] ?>&price=<?php echo $result['price'] . '' . 'VNĐ' ?>&time=<?php echo $result['date_order'] ?> ">Pending</a>
+
+                                                                <a href="?shiftid=<?php echo $result['id'] ?>&price=<?php echo $result['price'] . '' . 'VNĐ' ?>&time=<?php echo $result['date_order'] ?> ">Đang vận chuyển</a>
                                                             <?php
-                                                            } else {
+                                                            } else if ($result['status'] == 1) {
+                                                            ?>
+                                                                  <a href="?shiftid=<?php echo $result['id'] ?>&price=<?php echo $result['price'] . '' . 'VNĐ' ?>&time=<?php echo $result['date_order'] ?> ">Đang giao hàng</a>
+                                                              
 
+                                                            <?php
+                                                            } elseif ($result['status'] == 2) {
 
                                                             ?>
-                                                                <a href="?shiftid=<?php echo $result['id'] ?>$price=<?php echo $result['price'] . '' . 'VNĐ' ?>&time=<?php echo $result['date_order'] ?> ">Remove</a>
+                                                                <a href="?delid=<?php echo $result['id'] ?>&price=<?php echo $result['price'] . '' . 'VNĐ' ?>&time=<?php echo $result['date_order'] ?> ">Xóa</a>
                                                             <?php
                                                             }
                                                             ?>
                                                         </td>
 
 
+
                                                     </tr>
+                                        </thead>
 
 
-
-                                            <?php
+                                <?php
                                                 }
                                             }
-                                            ?>
-                                            </tbody>
+                                ?>
+                                </tbody>
                                     </table>
                                 </div>
                             </div>

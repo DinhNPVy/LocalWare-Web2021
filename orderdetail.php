@@ -82,8 +82,8 @@ if ($login_check == false) {
                                                 <?php
                                                 if ($result['status'] == '0') {
                                                     echo 'Pending';
-                                                } else {
-                                                    echo 'Processed';
+                                                } else if ($result['status'] == 1) {
+                                                    echo 'Shifted';
                                                 }
                                                 ?>
                                             </td>

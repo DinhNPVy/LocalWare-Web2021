@@ -23,12 +23,12 @@ Session::checkSession();
     <script src="js/jquery.js"></script>
     <link rel="stylesheet" href="css/styleheadermenu.css?v=<?php echo time() ?>">
     <script src="js/setup.js"></script>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         $(document).ready(function() {
             setupLeftMenu();
             setSidebarHeight();
         });
-    </script>
+    </script> -->
 </head>
 
 <body>

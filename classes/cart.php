@@ -164,4 +164,62 @@ class cart
         $get_cart_order = $this->db->select($query);
         return $get_cart_order;
     }
+
+   
+    public function shifted($id, $proid, $qty, $time, $price)
+    {
+    $id = mysqli_real_escape_string($this->db->link, $id);
+    $time = mysqli_real_escape_string($this->db->link, $time);
+    $price = mysqli_real_escape_string($this->db->link, $price);
+
+    $query_select = "SELECT * FROM tbl_product WHERE productID='$proid'";
+    $get_select = $this->db->select($query_select);
+
+    if ($get_select) {
+      while ($result = $get_select->fetch_assoc()) {
+        $soluong_new = $result['product_remain'] - $qty;
+        $qty_soldout = $result['product_soldout'] + $qty;
+
+        $query_soluong = "UPDATE tbl_product SET
+					product_remain = '$soluong_new',product_soldout = '$qty_soldout' WHERE productID = '$proid'";
+        $result = $this->db->update($query_soluong);
+      }
+    }
+
+   
+    $query = "UPDATE tbl_order SET 
+    status = '1'
+
+    WHERE id = '$id' AND date_order = '$time' AND price = '$price'";
+    $result = $this->db->update($query);
+
+    if ($result) {
+
+    $mes = "<span class='Success'>Update Order Successfully</span>";
+    return $mes;
+    } else {
+
+    $mes = "<span class='error'>Update Order Not Successfully</span>";
+    return $mes;
+    }
+  }
+
+  public function delShifted($id, $time, $price)
+  {
+    $id = mysqli_real_escape_string($this->db->link, $id);
+    $time = mysqli_real_escape_string($this->db->link, $time);
+    $price = mysqli_real_escape_string($this->db->link, $price);
+    $query = "DELETE FROM tbl_order 
+          WHERE ID = '$id' AND date_order = '$time' AND price = '$price' ";
+
+    $result = $this->db->update($query);
+    if ($result) {
+      $msg = "<span class='success'> DELETE Order Succesfully</span> ";
+      return $msg;
+    } else {
+      $msg = "<span class='erorr'> DELETE Order NOT Succesfully</span> ";
+      return $msg;
+    }
+  }
+
 }
