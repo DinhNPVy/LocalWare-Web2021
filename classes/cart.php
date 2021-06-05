@@ -68,9 +68,9 @@ class cart
     {
         $quantity = mysqli_real_escape_string($this->db->link, $quantity);
         $cartId = mysqli_real_escape_string($this->db->link, $cartId);
-        $query = "UPDATE tbl_cart SET 
+        $query = "UPDATE tbl_cart SET
                 quantity = '$quantity'
-            
+
                 WHERE cartId = '$cartId'";
         $result = $this->db->update($query);
 
@@ -164,8 +164,6 @@ class cart
         $get_cart_order = $this->db->select($query);
         return $get_cart_order;
     }
-
-   
     public function shifted($id, $proid, $qty, $time, $price)
     {
     $id = mysqli_real_escape_string($this->db->link, $id);
@@ -186,8 +184,8 @@ class cart
       }
     }
 
-   
-    $query = "UPDATE tbl_order SET 
+
+    $query = "UPDATE tbl_order SET
     status = '1'
 
     WHERE id = '$id' AND date_order = '$time' AND price = '$price'";
@@ -203,13 +201,12 @@ class cart
     return $mes;
     }
   }
-
   public function delShifted($id, $time, $price)
   {
     $id = mysqli_real_escape_string($this->db->link, $id);
     $time = mysqli_real_escape_string($this->db->link, $time);
     $price = mysqli_real_escape_string($this->db->link, $price);
-    $query = "DELETE FROM tbl_order 
+    $query = "DELETE FROM tbl_order
           WHERE ID = '$id' AND date_order = '$time' AND price = '$price' ";
 
     $result = $this->db->update($query);
