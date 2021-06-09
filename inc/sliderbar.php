@@ -25,9 +25,8 @@
 </head>
 
 <body>
-
+    <div class="container">
     <div class="row" style="    margin-right: -10px;margin-left: -10px;">
-
         <div class="xv-product-slides grid-view products" data-thumbnail="figure .xv-superimage" data-product=".xv-product-unit">
             <div class="row">
                 <?php
@@ -35,10 +34,11 @@
                 if ($productNew) {
                     while ($result_new = $productNew->fetch_assoc()) {
                 ?>
-                        <div class="xv-product-unit">
-                            <div class="xv-product shadow-around">
+                        <div class="col-md-3">
+                            <div class="xv-product-unit">
+                            <div class="xv-product ">
                                 <figure>
-                                    <a href="#"><img class="xv-superimage" src="admin/uploads/<?php echo $result_new["image"] ?>" alt="" style="height: 180px;" /></a>
+                                    <a href="#"><img class="xv-superimage" src="admin/uploads/<?php echo $result_new["image"] ?>" alt=""  /></a>
                                     <figcaption>
                                         <ul class="style1" style="font-size: 13.4px;">
                                             <li><a data-qv-tab="#qvt-wishlist" class="btn-cart flytoQuickView btn-square btn-blue" href="#"><i class="fa fa-heart"></i></a></li>
@@ -65,12 +65,14 @@
                             </div>
                             <!--xv-product(list-view)-->
                         </div>
+                        </div>
                 <?php
                     }
                 }
                 ?>
             </div>
         </div>
+    </div>
     </div>
 </body>
 
