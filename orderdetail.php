@@ -3,10 +3,21 @@ include_once 'inc/header.php';
 ?>
 
 <?php
+
+
 $login_check = Session::get("customer_signin");
 
 if ($login_check == false) {
     '<script>window.location=login.php</script>';
+}
+$ct = new cart();
+
+if (isset($_GET['confirmid'])) {
+    $id = $_GET['confirmid'];
+
+    $time = $_GET['time'];
+    $price = $_GET['price'];
+    $shifted_confirmid = $ct->ShiftedConfirmid($id, $time, $price);
 }
 
 ?>
@@ -83,7 +94,12 @@ if ($login_check == false) {
                                                 if ($result['status'] == '0') {
                                                     echo 'Pending';
                                                 } else if ($result['status'] == 1) {
-                                                    echo 'Shifted';
+                                                ?>
+                                                    <span>Shifted</span>
+
+                                                <?php
+                                                } else {
+                                                    echo 'Received';
                                                 }
                                                 ?>
                                             </td>
@@ -93,10 +109,17 @@ if ($login_check == false) {
                                                 <td><?php echo 'N/A'  ?></td>
                                             <?php
 
-                                            } else {
+                                            } elseif ($result['status'] == '1') {
                                             ?>
-                                                <td><a href="?cartid=<?php echo $result['cartId'] ?>">Remove</a></td>
+                                                <td> <a href="?confirmid=<?php echo $customer_id ?>&price=<?php echo $result['price'] . ''  ?>&time=<?php echo $result['date_order'] ?> ">Confirmed</a></td>
+                                            <?php
+                                            } else {
+
+                                            ?>
+                                                <td>
+                                                    <?php echo 'Received' ?>
                                                 </td>
+
                                             <?php
                                             }
                                             ?>

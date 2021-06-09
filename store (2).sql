@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 28, 2021 lúc 03:17 AM
+-- Thời gian đã tạo: Th6 09, 2021 lúc 03:30 AM
 -- Phiên bản máy phục vụ: 10.4.18-MariaDB
 -- Phiên bản PHP: 7.3.27
 
@@ -69,7 +69,8 @@ INSERT INTO `tbl_brand` (`brandId`, `brandName`) VALUES
 (8, 'Panasonic'),
 (9, 'SONY'),
 (10, 'Canon'),
-(11, 'Nakzen');
+(11, 'Nakzen'),
+(12, 'Nokia');
 
 -- --------------------------------------------------------
 
@@ -107,6 +108,21 @@ INSERT INTO `tbl_category` (`catId`, `catName`) VALUES
 (3, 'Clock'),
 (7, 'Phone'),
 (8, 'Air-conditioner');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `tbl_compare`
+--
+
+CREATE TABLE `tbl_compare` (
+  `id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `productId` int(11) NOT NULL,
+  `productName` varchar(255) NOT NULL,
+  `price` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -154,8 +170,9 @@ CREATE TABLE `tbl_order` (
 --
 
 INSERT INTO `tbl_order` (`id`, `productId`, `productName`, `customer_id`, `quantity`, `price`, `image`, `status`, `date_order`) VALUES
-(25, 24, 'Điện thoại iPhone 12 Pro 256GB', 2, 1, '33990000', '94eff32b93.jpg', 0, '2021-05-20 15:20:39'),
-(26, 9, 'Lenovo - ceneral due core', 2, 1, '16690000', '4c8d42e0b1.jpg', 0, '2021-05-20 16:05:11');
+(25, 24, 'Điện thoại iPhone 12 Pro 256GB', 2, 1, '33990000', '94eff32b93.jpg', 1, '2021-05-20 15:20:39'),
+(26, 9, 'Lenovo - ceneral due core', 2, 1, '16690000', '4c8d42e0b1.jpg', 2, '2021-05-20 16:05:11'),
+(27, 24, 'Điện thoại iPhone 12 Pro 256GB', 2, 1, '33990000', '94eff32b93.jpg', 2, '2021-05-28 03:38:52');
 
 -- --------------------------------------------------------
 
@@ -194,6 +211,21 @@ INSERT INTO `tbl_product` (`productId`, `productName`, `catId`, `brandId`, `prod
 (23, 'Điện thoại iPhone 12 Pro Max 512GB', 7, 7, '<h3><a title=\"Tham khảo điện thoại iPhone 12 Pro Max 512GB ch&iacute;nh h&atilde;ng tại Thế Giới Di Động\" href=\"https://www.thegioididong.com/dtdd/iphone-12-pro-max-512gb\" target=\"_blank\">iPhone 12 Pro Max 512GB</a>&nbsp;- đẳng cấp từ t&ecirc;n gọi đến từng chi tiết. Ngay từ khi chỉ l&agrave; tin đồn th&igrave; chiếc&nbsp;<a title=\"Tham khảo điện thoại ch&iacute;nh h&atilde;ng tại Thế Giới Di Động\" href=\"https://www.thegioididong.com/dtdd\" target=\"_blank\">smartphone</a>&nbsp;n&agrave;y đ&atilde; l&agrave;m đứng ngồi kh&ocirc;ng y&ecirc;n bao &ldquo;fan cứng&rdquo; nh&agrave;&nbsp;<a title=\"Tham khảo mẫu sản phẩm Apple ch&iacute;nh h&atilde;ng tại Thế Giới Di Động\" href=\"https://www.thegioididong.com/apple\" target=\"_blank\">Apple</a>, với những n&acirc;ng cấp v&ocirc; c&ugrave;ng nổi bật hứa hẹn sẽ mang đến những trải nghiệm tốt nhất về mọi mặt m&agrave; chưa một chiếc&nbsp;<a title=\"Tham khảo điện thoại iPhone ch&iacute;nh h&atilde;ng tại Thế Giới Di Động\" href=\"https://www.thegioididong.com/dtdd-apple-iphone\" target=\"_blank\">iPhone</a>&nbsp;tiền nhiệm n&agrave;o c&oacute; được.</h3>\r\n<h3>Thu h&uacute;t từ c&aacute;i nh&igrave;n đầu ti&ecirc;n</h3>\r\n<p>Quay trở lại đầy ho&agrave;i niệm với thiết kế phẳng, vu&ocirc;ng vức tương tự&nbsp;<a title=\"Tham khảo th&ocirc;ng tin iPhone 4 tại thegioididong.com\" href=\"https://www.thegioididong.com/dtdd/iphone-4-8gb\" target=\"_blank\">iPhone 4</a>&nbsp;nhưng kh&ocirc;ng hề cho cảm gi&aacute;c lỗi thời m&agrave; ho&agrave;n to&agrave;n sang trọng với thiết kế tinh tế v&agrave; được cấu tạo từ những vật liệu cao cấp hơn.</p>', 1, '41490000   ', '17b625bdac.jpg'),
 (24, 'Điện thoại iPhone 12 Pro 256GB', 7, 7, '<h3><a title=\"Tham khảo gi&aacute; điện thoại iPhone 12 Pro 256 GB ch&iacute;nh h&atilde;ng VN/A gi&aacute; tốt tại Thegioididong.com\" type=\"Tham khảo gi&aacute; điện thoại iPhone 12 Pro 256 GB ch&iacute;nh h&atilde;ng VN/A gi&aacute; tốt tại Thegioididong.com\" href=\"https://www.thegioididong.com/dtdd/iphone-12-pro-256gb\" target=\"_blank\">iPhone 12 Pro 256 GB</a>&nbsp;đ&atilde; ch&iacute;nh thức được ra mắt với sự thay đổi lớn về thiết kế b&ecirc;n ngo&agrave;i chứa đựng một hiệu năng cực khủng b&ecirc;n trong, k&egrave;m theo đ&oacute; l&agrave; một loạt c&aacute;c c&ocirc;ng nghệ ấn tượng về camera, kết nối 5G lần đầu được xuất hiện.</h3>\r\n<h3>Giống iPhone 5 nhưng ph&oacute;ng to với m&agrave;n h&igrave;nh tr&agrave;n viền</h3>\r\n<p>Kh&ocirc;ng nằm ngo&agrave;i dự đo&aacute;n, iPhone 12 Pro quay lại thiết kế dạng hộp với phần khung viền vu&ocirc;ng vức, mạnh mẽ đ&atilde; từng xuất hiện tr&ecirc;n iPhone 5, đồng thời kết th&uacute;c kỷ nguy&ecirc;n &ldquo;bo cong&rdquo; từ thế hệ iPhone 6.</p>', 1, '33990000  ', '94eff32b93.jpg');
 
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `tbl_wishlist`
+--
+
+CREATE TABLE `tbl_wishlist` (
+  `id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `productId` int(11) NOT NULL,
+  `productName` varchar(255) NOT NULL,
+  `price` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 --
 -- Chỉ mục cho các bảng đã đổ
 --
@@ -223,6 +255,12 @@ ALTER TABLE `tbl_category`
   ADD PRIMARY KEY (`catId`);
 
 --
+-- Chỉ mục cho bảng `tbl_compare`
+--
+ALTER TABLE `tbl_compare`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Chỉ mục cho bảng `tbl_customer`
 --
 ALTER TABLE `tbl_customer`
@@ -241,6 +279,12 @@ ALTER TABLE `tbl_product`
   ADD PRIMARY KEY (`productId`);
 
 --
+-- Chỉ mục cho bảng `tbl_wishlist`
+--
+ALTER TABLE `tbl_wishlist`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT cho các bảng đã đổ
 --
 
@@ -248,19 +292,25 @@ ALTER TABLE `tbl_product`
 -- AUTO_INCREMENT cho bảng `tbl_brand`
 --
 ALTER TABLE `tbl_brand`
-  MODIFY `brandId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `brandId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_cart`
 --
 ALTER TABLE `tbl_cart`
-  MODIFY `cartId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `cartId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_category`
 --
 ALTER TABLE `tbl_category`
   MODIFY `catId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT cho bảng `tbl_compare`
+--
+ALTER TABLE `tbl_compare`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_customer`
@@ -272,13 +322,19 @@ ALTER TABLE `tbl_customer`
 -- AUTO_INCREMENT cho bảng `tbl_order`
 --
 ALTER TABLE `tbl_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_product`
 --
 ALTER TABLE `tbl_product`
   MODIFY `productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT cho bảng `tbl_wishlist`
+--
+ALTER TABLE `tbl_wishlist`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

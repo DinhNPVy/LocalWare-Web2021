@@ -79,6 +79,12 @@ $product = new products();
                     }
                     ?>
 
+                    <?php
+                    $login_check = Session::get('customer_signin');
+                    if ($login_check) {
+                        echo '<li class="nav-item"><a href="compareproduct.php" class="nav-link sub-menu-item">Compare</a></li>';
+                    }
+                    ?>
 
                     <li class="nav-item"><a href="contact.php" class="nav-link sub-menu-item">Contact</a></li>
                     <?php
@@ -89,6 +95,7 @@ $product = new products();
                         echo '<li class="nav-item"><a href="profile.php" class="nav-link sub-menu-item">Profile</a></li>';
                     }
                     ?>
+
                     <div class="clear"></div>
 
                 </ul>
@@ -107,7 +114,9 @@ $product = new products();
                             <div class="col-lg-4 mb-2" style="display: flex; padding:10px"> -->
                             <?php
                             if (isset($_GET['customer_id'])) {
+                                $cutomer_id = $_GET['customer_id'];
                                 $delCart = $ct->del_all_dataCart();
+                                $delCompare = $ct->del_all_dataCompare($customer_id);
                                 Session::destroy();
                             }
                             ?>

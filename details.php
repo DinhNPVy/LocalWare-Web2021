@@ -6,20 +6,18 @@ include_once 'inc/header.php';
 if (!isset($_GET['productid']) || $_GET['productid'] == NULL) {
     echo "<script> window.location = '404.php' </script>";
 } else {
-    $id = $_GET["productid"];
+    $productid = $_GET["productid"];
+}
+$customer_id = Session::get('customer_id');
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['compare'])) {
+
+    $productid = $_POST["productid"];
+    $insertCompare = $product->insertCompare($productid, $customer_id);
 }
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['submit'])) {
     $quantity = $_POST["quantity"];
-    $addCart = $ct->addToCart($quantity, $id);
+    $insertCart = $ct->addToCart($quantity, $productid);
 }
-
-
-// $customer_ID = Session::get("customer_ID");
-
-// if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['compare'])) {
-//     $id = $_POST["productid"];
-//     $insertCompare = $ct->insertCompare($productID, $customer_ID);
-// }
 
 // if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['wishlist'])) {
 //     $id = $_POST["productid"];
@@ -51,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['submit'])) {
 <section class="section">
     <div class="container">
         <?php
-        $productDetail = $product->getProductDetail($id);
+        $productDetail = $product->getProductDetail($productid);
 
         if ($productDetail) {
             while ($result_details = $productDetail->fetch_assoc()) {
@@ -104,7 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['submit'])) {
                                 <div class="qty mb-4">
 
                                     <h5 class="d-inline-block">Select Items :</h5>
-                                    <input type="number" class="buyfield" name="quantity" value="1" min="1" style="font-size: 15px ; border: 2px solid" ;>
+                                    <input type="number" class="col-lg-12 mb-2 form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus" name="quantity" value="1" min="1">
 
                                 </div>
                                 <div class="color mb-4">
@@ -129,7 +127,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['submit'])) {
                                     </ul>
                                 </div>
                                 <div class="availability mb-4" style="display: inline-flex;">
-                                    <h5 class="d-inline-block">availability : </h5>
+                                    <h5 class="d-inline-block">availability: </h5>
+
                                     <h5 style="color: green;"><?php
                                                                 if ($result_details['type'] == 0) {
                                                                     echo 'Feathered';
@@ -140,17 +139,66 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['submit'])) {
                                 </div>
                                 <div class="hover-content bg-white">
 
-                                    <i class="fa fa-shopping-cart"><i class="fs-18 fw-bolder pro-icon align-middle"></i> <input type="submit" class="btn btn-primary me-2 my-2" name="submit" value="Add To Cart"> </i></input>
+                                    <i class="fa fa-shopping-cart" style="color: gray;"><i class="fs-18 fw-bolder pro-icon align-middle"></i> <input type="submit" class="btn btn-primary me-2 my-2" name="submit" value="Add To Cart"> </i></input>
 
                                 </div>
 
                             </form>
                             <p>
                                 <?php
-                                if (isset($addCart)) {
+                                if (isset($insertCart)) {
                                     echo '<span style="color: red; font-size: 18px">The product already exists in the shopping cart</span>';
                                 }
                                 ?></p>
+
+
+
+
+
+
+                            <div class="hover-content bg-white">
+                                <form action=" " method="POST">
+                                    <input type="hidden" class="btn btn-primary me-2 my-2" name="productid" value="<?php echo $result_details['productId'] ?>" />
+                                    <i class="fas fa-heart" style="color: hotpink;"></i><i class="fs-18 fw-bolder pro-icon align-middle"></i> <a href="?wlist=<?php echo $result_details['productId'] ?>"> </i></a>
+                                    <?php
+                                    $login_check = Session::get('customer_signin');
+                                    if ($login_check) {
+                                        echo ' <input type="submit" class="btn btn-primary me-2 my-2" name="submit" value="Yêu thích">';
+                                    } else {
+                                        echo '';
+                                    }
+                                    ?>
+                                    <?php
+                                    if (isset($insertWishlist)) {
+                                        echo $insertWishlist;
+                                    }
+                                    ?>
+
+                                </form>
+              
+                                <form action=" " method="POST">
+                                    <input type="hidden" class="btn btn-primary me-2 my-2" name="productid" value="<?php echo $result_details['productId'] ?>" />
+                                    <i class="fab fa-asymmetrik" style="color: greenyellow;"></i><i class="fs-18 fw-bolder pro-icon align-middle"></i><a href="?compare=<?php echo $result_details['productId'] ?>"></a>
+                                    <?php
+                                    $login_check = Session::get('customer_signin');
+                                    if ($login_check) {
+                                        echo ' <input type="submit" class="btn btn-primary me-2 my-2" name="compare" value="So Sánh">';
+                                    } else {
+                                        echo '';
+                                    }
+                                    ?>
+                                    <?php
+                                    if (isset($insertCompare)) {
+                                        echo $insertCompare;
+                                    }
+                                    ?>
+
+                                </form>
+
+
+                            </div>
+
+
                         </div>
                     </div>
                     <div class="col-md-12 mt-4" style="padding-left: 30%; padding-bottom: 33%;">

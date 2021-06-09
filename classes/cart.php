@@ -21,14 +21,14 @@ class cart
         $this->fm = new Format();
     }
 
-    public function addToCart($quantity, $id)
+    public function addToCart($quantity, $productid)
     {
         $quantity = $this->fm->validation($quantity);
         $quantity = mysqli_real_escape_string($this->db->link, $quantity);
-        $id = mysqli_real_escape_string($this->db->link, $id);
+        $id = mysqli_real_escape_string($this->db->link, $productid);
         $sId = session_id();
 
-        $query = "SELECT * FROM tbl_product WHERE productId = '$id'";
+        $query = "SELECT * FROM tbl_product WHERE productId = '$productid'";
         $result = $this->db->select($query)->fetch_assoc();
 
         $productName = $result["productName"];
@@ -50,7 +50,7 @@ class cart
             $result_insert = $this->db->insert($query_insert);
 
             if ($result_insert) {
-                @header("Location: cart.php");
+                echo "<script> window.location = 'cart.php' </script>";
             } else {
                 header("Location: 404.php");
             }
@@ -68,9 +68,9 @@ class cart
     {
         $quantity = mysqli_real_escape_string($this->db->link, $quantity);
         $cartId = mysqli_real_escape_string($this->db->link, $cartId);
-        $query = "UPDATE tbl_cart SET 
+        $query = "UPDATE tbl_cart SET
                 quantity = '$quantity'
-            
+
                 WHERE cartId = '$cartId'";
         $result = $this->db->update($query);
 
@@ -111,6 +111,14 @@ class cart
         $sId = session_id();
         $query = "DELETE FROM tbl_cart WHERE sId = '$sId'";
         $result = $this->db->select($query);
+        return $result;
+    }
+
+    public function del_all_dataCompare($customer_id)
+    {
+        $sId = session_id();
+        $query = "DELETE FROM tbl_compare WHERE customer_id = '$customer_id'";
+        $result = $this->db->delete($query);
         return $result;
     }
 
@@ -164,62 +172,70 @@ class cart
         $get_cart_order = $this->db->select($query);
         return $get_cart_order;
     }
-
-   
     public function shifted($id, $proid, $qty, $time, $price)
     {
-    $id = mysqli_real_escape_string($this->db->link, $id);
-    $time = mysqli_real_escape_string($this->db->link, $time);
-    $price = mysqli_real_escape_string($this->db->link, $price);
+        $id = mysqli_real_escape_string($this->db->link, $id);
+        $time = mysqli_real_escape_string($this->db->link, $time);
+        $price = mysqli_real_escape_string($this->db->link, $price);
 
-    $query_select = "SELECT * FROM tbl_product WHERE productID='$proid'";
-    $get_select = $this->db->select($query_select);
+        $query_select = "SELECT * FROM tbl_product WHERE productID='$proid'";
+        $get_select = $this->db->select($query_select);
 
-    if ($get_select) {
-      while ($result = $get_select->fetch_assoc()) {
-        $soluong_new = $result['product_remain'] - $qty;
-        $qty_soldout = $result['product_soldout'] + $qty;
+        if ($get_select) {
+            while ($result = $get_select->fetch_assoc()) {
+                $soluong_new = $result['product_remain'] - $qty;
+                $qty_soldout = $result['product_soldout'] + $qty;
 
-        $query_soluong = "UPDATE tbl_product SET
+                $query_soluong = "UPDATE tbl_product SET
 					product_remain = '$soluong_new',product_soldout = '$qty_soldout' WHERE productID = '$proid'";
-        $result = $this->db->update($query_soluong);
-      }
-    }
+                $result = $this->db->update($query_soluong);
+            }
+        }
 
-   
-    $query = "UPDATE tbl_order SET 
+
+        $query = "UPDATE tbl_order SET
     status = '1'
 
     WHERE id = '$id' AND date_order = '$time' AND price = '$price'";
-    $result = $this->db->update($query);
+        $result = $this->db->update($query);
 
-    if ($result) {
+        if ($result) {
 
-    $mes = "<span class='Success'>Update Order Successfully</span>";
-    return $mes;
-    } else {
+            $mes = "<span class='Success'>Update Order Successfully</span>";
+            return $mes;
+        } else {
 
-    $mes = "<span class='error'>Update Order Not Successfully</span>";
-    return $mes;
+            $mes = "<span class='error'>Update Order Not Successfully</span>";
+            return $mes;
+        }
     }
-  }
+    public function delShifted($id, $time, $price)
+    {
+        $id = mysqli_real_escape_string($this->db->link, $id);
+        $time = mysqli_real_escape_string($this->db->link, $time);
+        $price = mysqli_real_escape_string($this->db->link, $price);
+        $query = "DELETE FROM tbl_order
+          WHERE id = '$id' AND date_order = '$time' AND price = '$price' ";
 
-  public function delShifted($id, $time, $price)
-  {
-    $id = mysqli_real_escape_string($this->db->link, $id);
-    $time = mysqli_real_escape_string($this->db->link, $time);
-    $price = mysqli_real_escape_string($this->db->link, $price);
-    $query = "DELETE FROM tbl_order 
-          WHERE ID = '$id' AND date_order = '$time' AND price = '$price' ";
-
-    $result = $this->db->update($query);
-    if ($result) {
-      $msg = "<span class='success'> DELETE Order Succesfully</span> ";
-      return $msg;
-    } else {
-      $msg = "<span class='erorr'> DELETE Order NOT Succesfully</span> ";
-      return $msg;
+        $result = $this->db->update($query);
+        if ($result) {
+            $msg = "<span class='success'> DELETE Order Succesfully</span> ";
+            return $msg;
+        } else {
+            $msg = "<span class='erorr'> DELETE Order NOT Succesfully</span> ";
+            return $msg;
+        }
     }
-  }
+    public function ShiftedConfirmid($id, $time, $price)
+    {
+        $id = mysqli_real_escape_string($this->db->link, $id);
+        $time = mysqli_real_escape_string($this->db->link, $time);
+        $price = mysqli_real_escape_string($this->db->link, $price);
+        $query = "UPDATE tbl_order SET
+            status = '2'
 
+          WHERE customer_id = '$id' AND date_order = '$time' AND price = '$price' ";
+
+        $result = $this->db->update($query);
+    }
 }
