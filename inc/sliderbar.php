@@ -8,66 +8,69 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
 
-    <!-- <link rel="stylesheet" href="../admin/css/stylesliderbar.css"> -->
+
+
+
+    <link rel="stylesheet" href="\">
+    <link rel="stylesheet" href="css/styleslider.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/owlcarousel.css">
+    <link rel="stylesheet" href="css/flags.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/style.min.css">
+
+
+
 </head>
 
 <body>
-    <!-- START TITLE -->
 
-    <section>
-        <div class="fluid-container">
-            <div class="row text-center">
-                <div class="col-lg-12">
-                    <div class="card position-relative" style="background-image: url(img/title.png); margin:18px 0px 0px;padding:50px 0;background-position:center;background-size:cover;background-repeat:no-repeat;border-radius:4px">
-                        <div class=" d-flex align-items-center justify-content-center">
-                            <div class="">
-                                <h1 class="fw-medium">News & Stories</h1>
-                                <h5 class="fw-normal lh-base">Found and base in Ho Chi Minh City University of Education, We are the Student group, design and branding <br> with partners worldwide.</h5>
+    <div class="row" style="    margin-right: -10px;margin-left: -10px;">
+
+        <div class="xv-product-slides grid-view products" data-thumbnail="figure .xv-superimage" data-product=".xv-product-unit">
+            <div class="row">
+                <?php
+                $productNew = $product->getProductNew();
+                if ($productNew) {
+                    while ($result_new = $productNew->fetch_assoc()) {
+                ?>
+                        <div class="xv-product-unit">
+                            <div class="xv-product shadow-around">
+                                <figure>
+                                    <a href="#"><img class="xv-superimage" src="admin/uploads/<?php echo $result_new["image"] ?>" alt="" style="height: 180px;" /></a>
+                                    <figcaption>
+                                        <ul class="style1" style="font-size: 13.4px;">
+                                            <li><a data-qv-tab="#qvt-wishlist" class="btn-cart flytoQuickView btn-square btn-blue" href="#"><i class="fa fa-heart"></i></a></li>
+                                            <li><a data-qv-tab="#qvt-compare" class="btn-cart flytoQuickView btn-square btn-blue" href="#"><i class="fa fa-exchange"></i></a></li>
+                                            <li><a class="btn-cart btn-square btn-blue" href="#"><i class="fa fa-expand"></i></a></li>
+                                        </ul>
+                                    </figcaption>
+                                </figure>
+                                <div class="xv-product-content">
+                                    <h3><a href="detail1.html"><?php echo $result_new["productName"] ?></a></h3>
+                                    <p>Aenean sollicitudin, nec sagittis sem lorem quist bibe dum auctor, nisi elit consequat ipsum. Duis sed odio sit amet nibh vulputate cursus a nec.</p>
+
+                                    <ul class="extra-links">
+                                        <li><a href="#"><i class="fa fa-heart"></i>Wishlist</a></li>
+                                        <li><a href="#"><i class="fa fa-exchange"></i>Compare</a></li>
+                                        <li><a href="#"><i class="fa fa-expand"></i>Expand</a></li>
+                                    </ul>
+                                    <!--ul-->
+                                    <div class="xv-rating stars-5"></div>
+                                    <span class="xv-price"><?php echo $fm->validation($result_new["price"] . " " . "VNĐ") ?></span>
+                                    <a data-qv-tab="#qvt-cart" href="#" class="product-buy flytoQuickView">Buy</a>
+                                </div>
+                                <!--xv-product-content-->
                             </div>
+                            <!--xv-product(list-view)-->
                         </div>
-                    </div>
-                </div>
+                <?php
+                    }
+                }
+                ?>
             </div>
         </div>
-    </section>
-
-    <!--content-->
-
-    <h2 class="tt_uppercase m_bottom_20 color_dark heading1 animate_ftr">All Products</h2>
-    <!--filter navigation of products-->
-    <div class="wrapper">
-        <div class="menu">
-            <ul>
-                <li>
-                    <a href="newproduct.php" class="a_parent">
-                        <div class="wrap">
-                            <span class="icon"></span>
-                            <span class="text">New</span>
-                           
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="wrapper">
-        <div class="menu">
-            <ul>
-                <li>
-                    <a href="featureproduct.php" class="a_parent">
-                        <div class="wrap">
-                            <span class="icon"></span>
-                            <span class="text"> Feature </span>
-                          
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-
-
     </div>
 </body>
 

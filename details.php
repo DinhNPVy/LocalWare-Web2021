@@ -19,10 +19,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['submit'])) {
     $insertCart = $ct->addToCart($quantity, $productid);
 }
 
-// if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['wishlist'])) {
-//     $id = $_POST["productid"];
-//     $insertWishlist = $ct->insertWishlist($productID, $customer_ID);
-// }
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['wishlist'])) {
+    $productid = $_POST["productid"];
+    $insertWishlist = $product->insertWishlist($productid, $customer_id);
+}
 
 
 
@@ -163,7 +163,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['submit'])) {
                                     <?php
                                     $login_check = Session::get('customer_signin');
                                     if ($login_check) {
-                                        echo ' <input type="submit" class="btn btn-primary me-2 my-2" name="submit" value="Yêu thích">';
+                                        echo ' <input type="submit" class="btn btn-primary me-2 my-2" name="wishlist" value="Yêu thích">';
                                     } else {
                                         echo '';
                                     }
@@ -175,7 +175,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['submit'])) {
                                     ?>
 
                                 </form>
-              
+
                                 <form action=" " method="POST">
                                     <input type="hidden" class="btn btn-primary me-2 my-2" name="productid" value="<?php echo $result_details['productId'] ?>" />
                                     <i class="fab fa-asymmetrik" style="color: greenyellow;"></i><i class="fs-18 fw-bolder pro-icon align-middle"></i><a href="?compare=<?php echo $result_details['productId'] ?>"></a>

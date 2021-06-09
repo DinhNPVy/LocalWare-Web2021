@@ -38,7 +38,7 @@ class customer
             } else {
 
 
-                $query = "INSERT INTO tbl_customer(name, address, city, country, phone, email, password)
+                $query = "INSERT INTO tbl_customer(name, address, phone, email, password)
                 VALUE('$name','$address', '$phone','$email', '$password')";
                 $result = $this->db->insert($query);
 

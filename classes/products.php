@@ -248,4 +248,40 @@ class products
             }
         }
     }
+    public function insertWishlist($productid, $customer_id)
+    {
+        $productid = mysqli_real_escape_string($this->db->link, $productid);
+        $customer_id = mysqli_real_escape_string($this->db->link, $customer_id);
+        $checkWishlist = "SELECT * FROM tbl_wishlist WHERE productId = '$productid' AND customer_id = '$customer_id'";
+        $result_checkwishlist = $this->db->select($checkWishlist);
+
+        if ($result_checkwishlist) {
+            $mes = "Product already Added To Wishlist";
+            return $mes;
+        } else {
+
+            $query = "SELECT * FROM tbl_product WHERE productId = '$productid'";
+            $result = $this->db->select($query)->fetch_assoc();
+
+            $productName = $result["productName"];
+            $price = $result["price"];
+            $image = $result["image"];
+
+
+
+
+            $query_insert = "INSERT INTO tbl_wishlist(productId, price, image, customer_id, productName)
+             VALUE('$productid','$price','$image','$customer_id','$productName')";
+
+            $result_wishlist = $this->db->insert($query_insert);
+
+            if ($result_wishlist) {
+                $alert = "<span class='Success'> Added Wishlist Successfully</span>";
+                return $alert;
+            } else {
+                $alert = "<span class='error'> Added Wishlist Not Successfully</span>";
+                return $alert;
+            }
+        }
+    }
 }

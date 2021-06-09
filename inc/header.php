@@ -41,25 +41,25 @@ $product = new products();
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
     <script src="js/jquery.js"></script>
     <script src="js/setup.js"></script>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         $(document).ready(function() {
             setupLeftMenu();
             setSidebarHeight();
         });
-    </script>
+    </script> -->
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light fixed-top sticky" id="navbar">
         <div class="container">
-            <a class="navbar-brand logo fw-bolder fs-24 text-dark">
-                <a href="index.php"><img src="img/Blue Calculator Icon Business Logo.png" alt="" style="height: 100px; border-radius: 100px" /></a>
-            </a>
-            <div class="col-lg-8 mb-2" id=navbar-collapse-1 style="padding: 20px;">
+
+            <a href="index.php"><img src="img/Blue Calculator Icon Business Logo.png" alt="" style="width: 42%;border-radius: 50%;" /></a>
+
+            <div class="col-lg-8 mb-2" id=navbar-collapse-1 style="padding: 10px;margin-right: 4%;">
                 <ul class="nav navbar-nav ms-auto" class="dc_mm-orange" id="dc_mega-menu-orange">
                     <li class="nav-item"><a href="index.php" class="nav-link sub-menu-item">Home</a></li>
 
-                    <li class="nav-item"><a href="details.php" class="nav-link sub-menu-item">Products</a></li>
+                    <li class="nav-item"><a href="products.php" class="nav-link sub-menu-item">Products</a></li>
 
                     <?php
                     $check_cart = $ct->check_cart();
@@ -101,14 +101,14 @@ $product = new products();
                 </ul>
 
             </div>
-            <div class="col-lg-6 mb-2" style="padding-right:15%;">
+            <div class="col-lg-6 mb-2" style="padding-right:8%;">
                 <div class="search-box">
                     <form action="">
                         <div>
                             <input class="col-lg-4 mb-2 form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus" type="text" placeholder="Search Products..." value="Search Products" onfocus="this.value = ''; " onblur="if (this.value = '' ) {this.value='Search for Products';}">
                         </div>
                         <!-- <input class="col-lg-6 mb-2" type="text" value="Search Products" onfocus="this.value = ''; " onblur="if (this.value = '' ) {this.value='Search for Products';}"> -->
-                        <div style=" padding-left: 102%; margin-top: -38px; display: flex; float: left;">
+                        <div style=" padding-left: 105%; margin-top: -49px; display: flex; float: left;">
                             <a href=""><i class="fa fa-search" type="submit"> </i></a>
                             <!-- </div>
                             <div class="col-lg-4 mb-2" style="display: flex; padding:10px"> -->
