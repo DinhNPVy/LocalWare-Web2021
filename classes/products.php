@@ -68,9 +68,9 @@ class products
     public function show_products()
     {
         $query = "SELECT tbl_product.*, tbl_category.catName, tbl_brand.brandName
-        
-         FROM tbl_product INNER JOIN tbl_category ON tbl_product.catId = tbl_category.catId 
-         INNER JOIN tbl_brand ON tbl_product.brandId = tbl_brand.brandId 
+
+         FROM tbl_product INNER JOIN tbl_category ON tbl_product.catId = tbl_category.catId
+         INNER JOIN tbl_brand ON tbl_product.brandId = tbl_brand.brandId
          order by tbl_product.productId desc";
 
         //$query = "SELECT * FROM tbl_product order by productId desc";
@@ -78,7 +78,7 @@ class products
         return $result;
     }
 
-    // UPDATE 
+    // UPDATE
     public function update_product($data, $file, $id)
     {
         // 1 bien ket noi vs du lieu , bien thu hai ket noi co so du lieu
@@ -115,7 +115,7 @@ class products
                     $alert = "<span class='Success'>You can upload only:-" . implode(', ', $permited) . "</span>";
                     return $alert;
                 }
-                $query = "UPDATE tbl_product SET 
+                $query = "UPDATE tbl_product SET
                 productName = '$productName',
                 brandId = '$brand',
                 catId = '$category',
@@ -126,7 +126,7 @@ class products
                 WHERE productId = '$id'";
             } else {
                 // Nếu không trống file ảnh
-                $query = "UPDATE tbl_product SET 
+                $query = "UPDATE tbl_product SET
                 productName = '$productName',
                 brandId = '$brand',
                 catId = '$category',
@@ -162,7 +162,7 @@ class products
         }
     }
 
-    // EDIT SANPHAM // 
+    // EDIT SANPHAM //
     public function getProductById($id)
     {
         $query = "SELECT * FROM tbl_product WHERE productId = '$id'";
@@ -182,13 +182,19 @@ class products
         $result = $this->db->select($query);
         return $result;
     }
+    public function getProductNewByCatId($catId)
+    {
+        $query = "SELECT * FROM tbl_product where catID = $catId  order by productId desc LIMIT 4";
+        $result = $this->db->select($query);
+        return $result;
+    }
 
     public function getProductDetail($productid)
     {
         $query = "SELECT tbl_product.*, tbl_category.catName, tbl_brand.brandName
-        
-         FROM tbl_product INNER JOIN tbl_category ON tbl_product.catId = tbl_category.catId 
-         INNER JOIN tbl_brand ON tbl_product.brandId = tbl_brand.brandId 
+
+         FROM tbl_product INNER JOIN tbl_category ON tbl_product.catId = tbl_category.catId
+         INNER JOIN tbl_brand ON tbl_product.brandId = tbl_brand.brandId
          WHERE tbl_product.productId = '$productid'";
 
 
