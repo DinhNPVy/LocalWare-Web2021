@@ -165,11 +165,19 @@ h6 {
 h1 {
     font-size: 30px;
 }
+<<<<<<< HEAD
 
 h2 {
     font-size: 24px;
 }
 
+=======
+
+h2 {
+    font-size: 24px;
+}
+
+>>>>>>> 6195f922eeabef71739093f28ff8c9dbd1585ef6
 h3 {
     font-size: 20px;
 }
@@ -767,6 +775,7 @@ Spacing Helping Classes
 
 .mb-15 {
     margin-bottom: 15px;
+<<<<<<< HEAD
 }
 
 .mb-20 {
@@ -817,6 +826,58 @@ Spacing Helping Classes
     margin-bottom: 75px;
 }
 
+=======
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.mb-25 {
+    margin-bottom: 25px;
+}
+
+.mb-30 {
+    margin-bottom: 30px;
+}
+
+.mb-35 {
+    margin-bottom: 35px;
+}
+
+.mb-40 {
+    margin-bottom: 40px;
+}
+
+.mb-45 {
+    margin-bottom: 45px;
+}
+
+.mb-50 {
+    margin-bottom: 50px;
+}
+
+.mb-55 {
+    margin-bottom: 55px;
+}
+
+.mb-60 {
+    margin-bottom: 60px;
+}
+
+.mb-65 {
+    margin-bottom: 65px;
+}
+
+.mb-70 {
+    margin-bottom: 70px;
+}
+
+.mb-75 {
+    margin-bottom: 75px;
+}
+
+>>>>>>> 6195f922eeabef71739093f28ff8c9dbd1585ef6
 .mb-80 {
     margin-bottom: 80px;
 }
@@ -2831,7 +2892,11 @@ Widgets
 }
 
 .widget-category ul li.parent .customeField>li {
+<<<<<<< HEAD
     padding: 1px ;
+=======
+    padding: 1px 0;
+>>>>>>> 6195f922eeabef71739093f28ff8c9dbd1585ef6
 }
 
 .widget-category ul li.parent>ul {
