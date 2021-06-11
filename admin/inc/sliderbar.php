@@ -118,22 +118,22 @@
              </ul>
            </div>
          </li>
-         <!-- <li><a href="#" class="a_parent">
+         <li><a href="#" class="a_parent">
              <div class="wrap">
-               <span class="icon"></span>
+               <span class="icon"><img src="img/sliders-h-solid.svg" style="height: 20px;" alt=""></span>
                <span class="text">
-                 Danh mục
+                 SLIDER
                </span>
 
              </div>
            </a>
            <div class="dd_menu">
              <ul>
-               <li><a href="catadd.php" class="dd_menu_a">
+               <li><a href="slideradd.php" class="dd_menu_a">
                    <div class="wrap">
                      <span class="icon"></span>
                      <span class="text">
-                       Thêm danh mục
+                       Thêm slider
                      </span>
 
                    </div>
@@ -143,7 +143,7 @@
                    <div class="wrap">
                      <span class="icon"></span>
                      <span class="text">
-                       Danh sách sản phẩm
+                       Danh sách slider
                      </span>
 
                    </div>
@@ -152,7 +152,8 @@
              </ul>
            </div>
          </li>
-         <li><a href="#" class="a_parent">
+
+         <!-- <li><a href="#" class="a_parent">
              <div class="wrap">
                <span class="icon"></span>
                <span class="text">

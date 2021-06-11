@@ -26,6 +26,47 @@
 
 <body>
     <!-- START TITLE -->
+    <div class="xv-slider-wrap">
+        <div class="owl-carousel slider_controls1">
+            <div class="xv-slide">
+
+
+
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 fadeInLeft animated">
+                            <?php
+                            $get_slider = $product->show_slider();
+                            if ($get_slider) {
+                                while ($result_slider = $get_slider->fetch_assoc()) {
+
+
+                            ?>
+
+
+                        </div>
+                        <div class="col-xs-12 fadeInRight animated">
+
+                            <div class="xv-slider-content clearfix color-white">
+                                <img src="admin/uploads/<?php echo $result_slider['slider_image']  ?>" alt="">
+                                <h1>Macbook Pro Retina</h1>
+                                <p>When we designed MacBook Pro with Retina display, we started with a blank slate. That gave us the freedom to imagine something radical, something entirely different. A notebook so thin, so light, and so powerful it’s like
+                                    nothing you’ve ever seen before.</p>
+                                <a href="#" class="btn btn-grey btn-price">From $1499</a>
+                                <a href="#" class="btn btn-grey">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+            <?php
+                                }
+                            }
+            ?>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <section>
         <div class="fluid-container">
             <div class="row text-center">

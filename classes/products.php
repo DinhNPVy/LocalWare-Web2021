@@ -63,6 +63,12 @@ class products
             }
         }
     }
+    public function show_slider()
+    {
+        $query = "SELECT * FROM tbl_slider order by sliderId desc";
+        $result = $this->db->select($query);
+        return $result;
+    }
 
     // DANH SACH SAN PHAM //
     public function show_products()
@@ -306,6 +312,57 @@ class products
                 $alert = "<span class='error'> Added Wishlist Not Successfully</span>";
                 return $alert;
             }
+        }
+    }
+    public function insert_slider($data, $files)
+    {
+
+
+        // 1 bien ket noi vs du lieu , bien thu hai ket noi co so du lieu
+        $sliderName = mysqli_real_escape_string($this->db->link, $data['sliderName']);
+        $type = mysqli_real_escape_string($this->db->link, $data['type']);
+
+
+        // kiem tra hinh anh va lay hinh anh cho vao folder upload
+        $permited = array('jpg', 'jpeg', 'png', 'gif');
+        $file_name = $_FILES['image']['name'];
+        $file_size = $_FILES['image']['size'];
+        $file_temp = $_FILES['image']['tmp_name'];
+
+        $div = explode('.', $file_name);
+        $file_ext = strtolower(end($div));
+        $unique_image = substr(md5(time()), 0, 10) . '.' . $file_ext;
+        $uploaded_image = "uploads/" . $unique_image;
+
+        if ($sliderName == "" || $type == "") {
+            $alert = "<span class='error'>Fiels must be not empty</span>";
+            return $alert;
+        } else {
+            if (!empty($file_name)) {
+                if ($file_size > 2048000) {
+
+                    $alert = "<span class='Success'>Image Size should be less then 2MB!</span>";
+                    return $alert;
+                } else if (in_array($file_ext, $permited) === false) {
+
+                    $alert = "<span class='Success'>You can upload only:-" . implode(', ', $permited) . "</span>";
+                    return $alert;
+                }
+                move_uploaded_file($file_temp, $uploaded_image);
+                $query = "INSERT INTO tbl_slider(sliderName,type,slider_image) VALUE('$sliderName','$type','$unique_image')";
+                $result = $this->db->insert($query);
+
+                if ($result) {
+                    $alert = "<span class='Success'>Slider Added Successfully</span>";
+                    return $alert;
+                } else {
+                    $alert = "<span class='error'>Slider Added Not Successfully</span>";
+                    return $alert;
+                }
+            }
+
+            // neu ng dung nhap thi doi chieu voi csdl
+
         }
     }
 }

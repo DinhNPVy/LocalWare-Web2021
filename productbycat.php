@@ -24,6 +24,11 @@ if (!isset($_GET["catid"]) || $_GET["catid"] == NULL) {
 } else {
     $id = $_GET["catid"];
 }
+// if (!isset($_GET["catid"]) || $_GET["catid"] == NULL) {
+//     echo "<script>window.location = '404.php'</script>";
+// } else {
+//     $id = $_GET["brandid"];
+// }
 
 ?>
 
@@ -105,7 +110,7 @@ if (!isset($_GET["catid"]) || $_GET["catid"] == NULL) {
 
                     ?>
 
-                            <li> <a href="productbybrand.php?brandid=<?php echo $result_allbrand['brandId'] ?> && productbycat.php?catid=<?php echo $result_allcat['catId'] ?>"><?php echo $result_allbrand['brandName'] ?></a></li>
+                            <li> <a href="productbybrand.php?brandid=<?php echo $result_allbrand['brandId'] ?>"><?php echo $result_allbrand['brandName'] ?></a></li>
 
                     <?php
                         }

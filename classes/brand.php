@@ -52,7 +52,7 @@ class brand
     // DANH SACH SAN PHAM //
     public function show_brand()
     {
-        $query = "SELECT * FROM tbl_brand order by brandId ";
+        $query = "SELECT * FROM tbl_brand order by brandId desc";
         $result = $this->db->select($query);
         return $result;
     }
