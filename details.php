@@ -84,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['wishlist'])) {
                         <div class="pro-detail-content my-3">
                             <div class="price d-inline-block">
                                 <ins class="pe-1 fs-16 fw-semibold text-decoration-none">
-                                    <?php echo $fm->validation($result_details["price"] . " " . "VNĐ") ?>
+                                    <?php echo $fm->format_currency($result_details["price"]) ?>
                                 </ins>
 
                             </div>

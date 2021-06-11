@@ -52,11 +52,20 @@ class brand
     // DANH SACH SAN PHAM //
     public function show_brand()
     {
-        $query = "SELECT * FROM tbl_brand order by brandId desc";
+        $query = "SELECT tbl_brand.brandName
+        FROM tbl_brand";
         $result = $this->db->select($query);
         return $result;
     }
 
+    public function getNameByBrand($brandid)
+    {
+
+        $query = "SELECT tbl_product.*, tbl_brand.brandName, tbl_brand.brandId, tbl_category.catId FROM tbl_product, tbl_brand, tbl_category
+         WHERE tbl_product.catId = tbl_category.catId AND tbl_product.brandId = tbl_brand.brandId AND tbl_product.brandId = '$brandid' LIMIT 1";
+        $result = $this->db->select($query);
+        return $result;
+    }
     // UPDATE 
     public function update_brand($brandName, $id)
     {

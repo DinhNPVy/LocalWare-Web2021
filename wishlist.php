@@ -5,10 +5,11 @@ include 'inc/header.php';
 ?>
 <?php
 
-// if (isset($_GET['cartid'])) {
-//     $cartid = $_GET['cartid'];
-//     $delProductCart = $ct->del_ProductCart($cartid);
-// }
+if (isset($_GET['productid'])) {
+    $customer_id = Session::get('customer_id');
+    $productid = $_GET['productid'];
+    $delWishlist = $product->del_Wishlist($productid, $customer_id);
+}
 ?>
 <?php
 // if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['submit'])) {
@@ -39,15 +40,10 @@ if (!isset($_GET['id'])) {
     <div class="container">
         <div class="cartoption">
             <div class="cartpage">
-                <h3>So sánh sản phẩm</h3>
+                <h3>Sản Phẩm Yêu Thích</h3>
                 <?php
-                if (isset($update_quantityCart)) {
-                    echo $update_quantityCart;
-                }
-                ?>
-                <?php
-                if (isset($delProductCart)) {
-                    echo $delProductCart;
+                if (isset($delWishlist)) {
+                    echo $delWishlist;
                 }
                 ?>
                 <section class="section">
@@ -86,10 +82,10 @@ if (!isset($_GET['id'])) {
                                             </tr>
                                             <?php
                                             $customer_id = Session::get('customer_id');
-                                            $get_compare = $product->getCompare($customer_id);
-                                            if ($get_compare) {
+                                            $get_wishlist = $product->getWishlist($customer_id);
+                                            if ($get_wishlist) {
                                                 $i = 0;
-                                                while ($result = $get_compare->fetch_assoc()) {
+                                                while ($result = $get_wishlist->fetch_assoc()) {
                                                     $i++;
 
                                             ?>
@@ -99,7 +95,10 @@ if (!isset($_GET['id'])) {
                                                         <td><img height="150px" src="admin/uploads/<?php echo $result['image'] ?>" alt=""></td>
                                                         <td><?php echo $fm->format_currency($result['price']) ?></td>
 
-                                                        <td><a href="details.php?productid=<?php echo $result['productId'] ?>">View</a></td>
+                                                        <td>
+
+                                                            <a onclick="return confirm('Bạn chắc chắn muốn xóa?')" href="?productid=<?php echo $result['productId'] ?>">Remove</a> |
+                                                            <a href="details.php?productid=<?php echo $result['productId'] ?>">Buy</a>
                                                         </td>
                                                     </tr>
 
@@ -138,7 +137,7 @@ if (!isset($_GET['id'])) {
                                                     </li>
                                                     <li class="list-inline-item float-end"><?php
 
-                                                                                            echo $fm->format_currency($subtotal);
+                                                                                            echo $subtotal . ' ' . 'VNĐ';
                                                                                             Session::set('sum', $subtotal);
                                                                                             Session::set('qty', $qty);
                                                                                             ?></li>
@@ -151,7 +150,7 @@ if (!isset($_GET['id'])) {
                                                 </ul>
                                                 <ul class="list-unstyled list-inline border-bottom py-3 mb-0">
                                                     <li class="list-inline-item">
-                                                        <h5 class="fs-15 mb-0 fw-medium">Vat : 20% (<?php echo $fm->format_currency($vat = $subtotal * 0.2) . ' ' . 'VNĐ' ?>)</h5>
+                                                        <h5 class="fs-15 mb-0 fw-medium">Vat : 20% (<?php echo $vat = $subtotal * 0.2 . ' ' . 'VNĐ' ?>)</h5>
                                                     </li>
                                                     <li class="list-inline-item float-end">
                                                         <?php

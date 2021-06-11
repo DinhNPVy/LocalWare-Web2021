@@ -113,6 +113,7 @@ class category
         $result = $this->db->select($query);
         return $result;
     }
+    
     public function getproductbyCat($id)
     {
         $query = "SELECT * FROM tbl_product WHERE catId = '$id' order by catId desc LIMIT 8";

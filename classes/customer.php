@@ -67,7 +67,7 @@ class customer
                 Session::set('customer_signin', true);
                 Session::set('customer_id', $value['id']);
                 Session::set('customer_name',  $value['name']);
-                header('Location:order.php');
+                header('Location:index.php');
             } else {
                 $alert = "<span class='error'>Password or Email dosen't match </span>";
                 return $alert;

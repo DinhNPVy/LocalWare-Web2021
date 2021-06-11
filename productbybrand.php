@@ -24,6 +24,11 @@ if (!isset($_GET["catid"]) || $_GET["catid"] == NULL) {
 } else {
     $id = $_GET["catid"];
 }
+if (!isset($_GET["brandid"]) || $_GET["brandid"] == NULL) {
+    echo "<script>window.location = '404.php'</script>";
+} else {
+    $brandid = $_GET["brandid"];
+}
 ?>
 
 <div class="row" style="    margin-right: -10px;margin-left: -10px;">
@@ -78,15 +83,15 @@ if (!isset($_GET["catid"]) || $_GET["catid"] == NULL) {
                     <h5 class="mb-0">Brand:
                         <?php
                         $brand = new brand();
-                        $nameBrand = $brand->getNameByBrand($id);
+                        $nameBrand = $brand->getNameByBrand($brandid);
                         if ($nameBrand) {
-                            while ($resultName = $nameBrand->fetch_assoc()) {
-                                $nameResult = $resultName["brandName"];
+                            while ($resultNameBrand = $nameBrand->fetch_assoc()) {
+                                $nameResultBrand = $resultNameBrand["brandName"];
                             }
                         }
 
-                        if (isset($nameResult)) {
-                            echo $nameResult;
+                        if (isset($nameResultBrand)) {
+                            echo $nameResultBrand;
                         }
                         ?>
                     </h5>
@@ -102,7 +107,7 @@ if (!isset($_GET["catid"]) || $_GET["catid"] == NULL) {
 
                     ?>
 
-                            <li> <a href="products.php?brandid=<?php echo $result_allbrand['brandId'] ?>"><?php echo $result_allbrand['brandName'] ?></a></li>
+                            <li> <a href="productbybrand.php?brandid=<?php echo $result_allbrand['brandId'] ?>"><?php echo $result_allbrand['brandName'] ?></a></li>
 
                     <?php
                         }
@@ -165,7 +170,7 @@ if (!isset($_GET["catid"]) || $_GET["catid"] == NULL) {
 
 
                                         <div class="xv-rating stars-5"></div>
-                                        <span class="xv-price"><?php echo $fm->validation($result["price"] . " " . "VNĐ") ?></span>
+                                        <span class="xv-price"><?php echo $fm->format_currency($result["price"]) ?></span>
                                         <!-- <a data-qv-tab="#qvt-cart" href="#" class="product-buy flytoQuickView">Buy</a> -->
                                     </div>
                                     <!--xv-product-content-->

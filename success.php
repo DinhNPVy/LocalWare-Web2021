@@ -26,7 +26,7 @@ include 'inc/header.php';
     ?>
     <p>Total Price You Have Bought From My Website: <?php $vat = $amount * 0.2;
                                                     $total = $vat + $amount;
-                                                    echo $total;  ?> </p>
+                                                    echo $fm->format_currency($total);  ?> </p>
     <p>We will contact as soon as possiable. Please see your order details here <a href="orderdetail.php">Click Here!</a></p>
 </div>
 

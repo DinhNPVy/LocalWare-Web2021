@@ -81,7 +81,7 @@ if (isset($_GET['confirmid'])) {
 
                                             <td><?php echo $result['productName'] ?></td>
                                             <td><img height="150px" src="admin/uploads/<?php echo $result['image'] ?>" alt=""></td>
-                                            <td><?php echo $result['price'] . ' ' . 'VNĐ' ?></td>
+                                            <td><?php echo $fm->format_currency($result['price']) ?></td>
                                             <td>
 
                                                 <?php echo $result['quantity'] ?>
@@ -111,7 +111,7 @@ if (isset($_GET['confirmid'])) {
 
                                             } elseif ($result['status'] == '1') {
                                             ?>
-                                                <td> <a href="?confirmid=<?php echo $customer_id ?>&price=<?php echo $result['price'] . ''  ?>&time=<?php echo $result['date_order'] ?> ">Confirmed</a></td>
+                                                <td> <a href="?confirmid=<?php echo $customer_id ?>&price=<?php echo $fm->format_currency($result['price']) . ''  ?>&time=<?php echo $result['date_order'] ?> ">Confirmed</a></td>
                                             <?php
                                             } else {
 

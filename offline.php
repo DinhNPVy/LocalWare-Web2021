@@ -72,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['submit'])) {
 
                                             <td><?php echo $result['productName'] ?></td>
                                             <td><img height="150px" src="admin/uploads/<?php echo $result['image'] ?>" alt=""></td>
-                                            <td><?php echo $result['price'] . ' ' . 'VNĐ' ?></td>
+                                            <td><?php echo $fm->format_currency($result['price']) ?></td>
                                             <td>
                                                 <form action="" method="post">
 
@@ -91,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['submit'])) {
                                             <td>
                                                 <?php
                                                 @$total = $result['price'] * $result['quantity'];
-                                                echo $total . ' ' . 'VNĐ';
+                                                echo $fm->format_currency($total);
                                                 ?>
 
                                             </td>
@@ -135,7 +135,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['submit'])) {
                                             </li>
                                             <li class="list-inline-item float-end"><?php
 
-                                                                                    echo $subtotal . ' ' . 'VNĐ';
+                                                                                    echo $fm->format_currency($subtotal);
                                                                                     Session::set('sum', $subtotal);
                                                                                     Session::set('qty', $qty);
                                                                                     ?></li>
@@ -148,7 +148,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['submit'])) {
                                         </ul>
                                         <ul class="list-unstyled list-inline border-bottom py-3 mb-0">
                                             <li class="list-inline-item">
-                                                <h5 class="fs-15 mb-0 fw-medium">Vat : 20% (<?php echo $vat = $subtotal * 0.2 . ' ' . 'VNĐ' ?>)</h5>
+                                                <h5 class="fs-15 mb-0 fw-medium">Vat : 20% (<?php echo $fm->format_currency($vat = $subtotal * 0.2) ?>)</h5>
                                             </li>
                                             <li class="list-inline-item float-end">
                                                 <?php
@@ -162,7 +162,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['submit'])) {
                                                     <?php
                                                     $vat = $subtotal * 0.2;
                                                     $total = $subtotal + $vat;
-                                                    echo $total . ' ' . 'VNĐ';
+                                                    echo $fm->format_currency($total);
                                                     ?>
                                                 </h5>
                                             </li>

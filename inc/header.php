@@ -19,6 +19,7 @@ $us = new user();
 $cate = new category();
 $cust = new customer();
 $product = new products();
+$brand = new brand();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,7 +60,7 @@ $product = new products();
                 <ul class="nav navbar-nav ms-auto" class="dc_mm-orange" id="dc_mega-menu-orange">
                     <li class="nav-item"><a href="index.php" class="nav-link sub-menu-item">Home</a></li>
 
-                    <li class="nav-item"><a href="products.php" class="nav-link sub-menu-item">Products</a></li>
+                    <!-- <li class="nav-item"><a href="productbycat.php" class="nav-link sub-menu-item">Products</a></li> -->
 
                     <?php
                     $check_cart = $ct->check_cart();
@@ -83,6 +84,12 @@ $product = new products();
                     $login_check = Session::get('customer_signin');
                     if ($login_check) {
                         echo '<li class="nav-item"><a href="compareproduct.php" class="nav-link sub-menu-item">Compare</a></li>';
+                    }
+                    ?>
+                    <?php
+                    $login_check = Session::get('customer_signin');
+                    if ($login_check) {
+                        echo '<li class="nav-item"><a href="wishlist.php" class="nav-link sub-menu-item">Wishlist</a></li>';
                     }
                     ?>
 
@@ -140,7 +147,7 @@ $product = new products();
                                 <?php
                                 $check_cart = $ct->check_cart();
                                 if ($check_cart) {
-                                    echo Session::get("sum") . " SL: " . Session::get("qty");
+                                    echo $fm->format_currency(Session::get("sum")) . " SL: " . Session::get("qty");
                                 } else {
                                     echo "Empty";
                                 }
