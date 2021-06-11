@@ -24,11 +24,7 @@ if (!isset($_GET["catid"]) || $_GET["catid"] == NULL) {
 } else {
     $id = $_GET["catid"];
 }
-if (!isset($_GET["brandid"]) || $_GET["brandid"] == NULL) {
-    // echo "<script>window.location = '404.php'</script>";
-} else {
-    $brandid = $_GET["brandid"];
-}
+
 ?>
 
 
@@ -84,7 +80,8 @@ if (!isset($_GET["brandid"]) || $_GET["brandid"] == NULL) {
                     <h5 class="mb-0">Brand:
                         <?php
                         $brand = new brand();
-                        $nameBrand = $brand->getNameByBrand($brandid);
+                        $nameBrand = $brand->getNameByBrand($id);
+
                         if ($nameBrand) {
                             while ($resultNameBrand = $nameBrand->fetch_assoc()) {
                                 $nameResultBrand = $resultNameBrand["brandName"];
@@ -108,7 +105,7 @@ if (!isset($_GET["brandid"]) || $_GET["brandid"] == NULL) {
 
                     ?>
 
-                            <li> <a href="productbybrand.php?brandid=<?php echo $result_allbrand['brandId'] ?> && productbycat?catid=<?php echo $result_allbrand['catId'] ?>"><?php echo $result_allbrand['brandName'] ?></a></li>
+                            <li> <a href="productbybrand.php?brandid=<?php echo $result_allbrand['brandId'] ?> && productbycat.php?catid=<?php echo $result_allcat['catId'] ?>"><?php echo $result_allbrand['brandName'] ?></a></li>
 
                     <?php
                         }

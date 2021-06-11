@@ -190,7 +190,13 @@ class products
     }
     public function getProductNewByCatId($catId)
     {
-        $query = "SELECT * FROM tbl_product where catID = $catId  order by productId desc LIMIT 4";
+        $query = "SELECT * FROM tbl_product where catId = $catId  order by productId desc LIMIT 4";
+        $result = $this->db->select($query);
+        return $result;
+    }
+    public function getProductByBrandId($brandid)
+    {
+        $query = "SELECT * FROM tbl_product where catId = $brandid  order by productId desc";
         $result = $this->db->select($query);
         return $result;
     }
