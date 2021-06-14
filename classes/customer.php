@@ -23,32 +23,27 @@ class customer
     public function insert_review()
     {
         $reviewname = $_POST['reviewname'];
-        $reviewemail = $_POST['email'];
+        // $reviewemail = $_POST['email'];
         $review = $_POST['review'];
         $product_id = $_POST['product_id_review'];
 
-        if ($reviewname == "" || $reviewemail == "" || $review == "") {
-            $alert = "<span class='error'>Fiels must be not empty</span>";
+        if ($reviewname == "" || $review == "") {
+            $alert = "<span class='error'  style='color:red;'>Fiels must be not empty</span>";
             return $alert;
         } else {
-            $check_mail = "SELECT * FROM tbl_customer WHERE email='$reviewemail' LIMIT 1";
-            $result = $this->db->select($check_mail);
+
+
+
+            $query = "INSERT INTO tbl_review(reviewName, review, product_id)
+                VALUE('$reviewname','$review', '$product_id')";
+            $result = $this->db->insert($query);
+
             if ($result) {
-                $alert = "<span class = 'Success'>Email Already Existend</span>";
+                $alert = "<span class='Success' style='color:green;'>Review Created Successfully</span>";
+                return $alert;
             } else {
-
-
-                $query = "INSERT INTO tbl_review(reviewName, review, product_id, email)
-                VALUE('$reviewname','$review', '$product_id','$reviewemail',)";
-                $result = $this->db->insert($query);
-
-                if ($result) {
-                    $alert = "<span class='Success'>Customer Created Successfully</span>";
-                    return $alert;
-                } else {
-                    $alert = "<span class='error'>Customer Created Not Successfully</span>";
-                    return $alert;
-                }
+                $alert = "<span class='error' style='color: red;'>Review Created Not Successfully</span>";
+                return $alert;
             }
         }
     }
@@ -60,13 +55,13 @@ class customer
         $email = mysqli_real_escape_string($this->db->link, $data['email']);
         $password = mysqli_real_escape_string($this->db->link, md5($data['password']));
         if ($name == "" || $address == "" || $phone == "" || $email == "" || $password == "") {
-            $alert = "<span class='error'>Fiels must be not empty</span>";
+            $alert = "<span class='error'  style='color:red;'>Fiels must be not empty</span>";
             return $alert;
         } else {
             $check_mail = "SELECT * FROM tbl_customer WHERE email='$email' LIMIT 1";
             $result = $this->db->select($check_mail);
             if ($result) {
-                $alert = "<span class = 'Success'>Email Already Existend</span>";
+                $alert = "<span class = 'Success'  style='color:green;'>Email Already Existend</span>";
             } else {
 
 
@@ -75,10 +70,10 @@ class customer
                 $result = $this->db->insert($query);
 
                 if ($result) {
-                    $alert = "<span class='Success'>Customer Created Successfully</span>";
+                    $alert = "<span class='Success'  style='color:green;'>Customer Created Successfully</span>";
                     return $alert;
                 } else {
-                    $alert = "<span class='error'>Customer Created Not Successfully</span>";
+                    $alert = "<span class='error'  style='color:red;' >Customer Created Not Successfully</span>";
                     return $alert;
                 }
             }
@@ -89,7 +84,7 @@ class customer
         $email = mysqli_real_escape_string($this->db->link, $data['email']);
         $password = mysqli_real_escape_string($this->db->link, md5($data['password']));
         if ($email == '' || $password == '') {
-            $alert = "<span class='error'>Password and Email must be not empty</span>";
+            $alert = "<span class='error'  style='color:red;'>Password and Email must be not empty</span>";
             return $alert;
         } else {
             $check_login = "SELECT * FROM tbl_customer WHERE email = '$email' AND password = '$password'";
@@ -101,7 +96,7 @@ class customer
                 Session::set('customer_name',  $value['name']);
                 header('Location:index.php');
             } else {
-                $alert = "<span class='error'>Password or Email dosen't match </span>";
+                $alert = "<span class='error'  style='color:red;'>Password or Email dosen't match </span>";
                 return $alert;
             }
         }
@@ -122,7 +117,7 @@ class customer
         $email = mysqli_real_escape_string($this->db->link, $data['email']);
 
         if ($name == "" || $address == "" ||   $phone == "" || $email == "") {
-            $alert = "<span class='error'>Fiels must be not empty</span>";
+            $alert = "<span class='error'  style='color:red;'>Fiels must be not empty</span>";
             return $alert;
         } else {
 
@@ -131,10 +126,10 @@ class customer
             $result = $this->db->insert($query);
 
             if ($result) {
-                $alert = "<span class='Success'>Customer Update Successfully</span>";
+                $alert = "<span class='Success'  style='color:green;'>Customer Update Successfully</span>";
                 return $alert;
             } else {
-                $alert = "<span class='error'>Customer Update Not Successfully</span>";
+                $alert = "<span class='error'  style='color:red;'>Customer Update Not Successfully</span>";
                 return $alert;
             }
         }

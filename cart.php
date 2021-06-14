@@ -116,7 +116,7 @@ if (!isset($_GET['id'])) {
                                                         </td>
                                                         <td>
                                                             <?php
-                                                            @$total = $result['price'] * $result['quantity'];
+                                                            $total = $result['price'] * $result['quantity'];
                                                             echo $fm->format_currency($total);
                                                             ?>
                                                         <td><a href="?cartid=<?php echo $result['cartId'] ?>">Remove</a></td>

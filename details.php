@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['wishlist'])) {
     $insertWishlist = $product->insertWishlist($productid, $customer_id);
 }
 
-if (isset($_GET['review_submit'])) {
+if (isset($_POST['review_submit'])) {
     $review = $cust->insert_review();
 }
 
@@ -257,24 +257,30 @@ if (isset($_GET['review_submit'])) {
 </section>
 <!-- end detail tab -->
 <div>
-    <h4 class="mt-5 mb-3" style="padding-left: 8.5%;">Add Your Review</h4>
+    <h4 class="mt-5 mb-3" style="padding-left: 8.5%;">Add Your Review: <span><?php
+                                                                                if (isset($review)) {
+                                                                                    echo $review;
+                                                                                }
+                                                                                ?>
+        </span>
+    </h4>
     <form action="" method="post">
         <p><input type="hidden" value="<?php echo $productid ?>" name="product_id_review"></p>
         <div class="row g-4 mb-2">
-            <div class="col-lg-4">
+            <div class="col-lg-10">
                 <div class="form-floating mb-3">
                     <label class="text-muted">Your name</label>
                     <input type="text" name="reviewname" class="form-control" placeholder="Your name">
 
                 </div>
             </div>
-            <div class="col-lg-4">
+            <!-- <div class="col-lg-4">
                 <div class="form-floating mb-3">
                     <label class="text-muted">Email address</label>
                     <input type="email" name="email" class="form-control" placeholder="Your email">
 
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="row g-4 mb-2">
             <div class="col-lg-10">

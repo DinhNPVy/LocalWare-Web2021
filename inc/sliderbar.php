@@ -33,7 +33,14 @@
         <div class="row" style="    margin-right: -10px;margin-left: -10px;">
             <div class="xv-product-slides grid-view products" data-thumbnail="figure .xv-superimage" data-product=".xv-product-unit">
                 <div class="row">
-                    <h2>ĐIỆN THOẠI NỔI BẬT</h2>
+
+                    <ul class="breadcrumb">
+                        <li><a href="#">
+                                <span style="font-size: 30px;">ĐIỆN THOẠI NỔI BẬT</span>
+                            </a></li>
+
+
+                    </ul>
                     <?php
                     $productNew = $product->getProductNewByCatId(7);
                     if ($productNew) {
@@ -74,7 +81,17 @@
                         }
                     }
                     ?>
-                    <h2>ĐỒNG HỒ NỔI BẬT</h2>
+                </div>
+                <div class="row">
+
+
+                    <ul class="breadcrumb">
+                        <li><a href="#">
+                                <span style="font-size: 30px;">ĐỒNG HỒ NỔI BẬT</span>
+                            </a></li>
+
+
+                    </ul>
                     <?php
                     $productNew = $product->getProductNewByCatId(3);
                     if ($productNew) {
@@ -118,7 +135,16 @@
                         }
                     }
                     ?>
-                    <h2>LAPTOP NỔI BẬT</h2>
+                </div>
+                <div class="row">
+
+                    <ul class="breadcrumb">
+                        <li><a href="#">
+                                <span style="font-size: 30px;">LAPTOP NỔI BẬT</span>
+                            </a></li>
+
+
+                    </ul>
                     <?php
                     $productNew = $product->getProductNewByCatId(2);
                     if ($productNew) {

@@ -4,7 +4,7 @@ include 'inc/header.php';
 <?php
 $login_check = Session::get('customer_signin');
 if ($login_check == false) {
-    header("Location:login.php");
+    '<script>window.location = login.php</script>';
 }
 ?>
 <?php

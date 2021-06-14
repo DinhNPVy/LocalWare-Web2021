@@ -17,13 +17,10 @@ include 'inc/header.php';
         </div>
     </div>
 </section>
+
 <?php
 include 'inc/slider.php';
 ?>
-<?php
-include 'inc/sliderbar.php';
-?>
-
 
 <body>
 
@@ -161,6 +158,13 @@ include 'inc/sliderbar.php';
         </div>
     </div>
 </body>
+
+<?php
+include 'inc/sliderbar.php';
+?>
+
+
+
 
 <body>
 

@@ -75,7 +75,7 @@ class cart
         $result = $this->db->update($query);
 
         if ($result) {
-            header('Location:cart.php');
+            '<srcipt>window.location = cart.php</srcipt>';
             // $mes = "<span class='Success'>Product Quantity Updated Successfully</span>";
             // return $mes;
         } else {
@@ -133,12 +133,13 @@ class cart
                 $productName = $result['productName'];
                 $quantity = $result['quantity'];
                 $image = $result['image'];
-                @$price = $result['price'] * $quantity;
+                $price = $result['price'] * $quantity;
                 $customer_id = $customer_id;
                 $query_order = "INSERT INTO tbl_order(productId, productName, quantity, price , image, customer_id)
              VALUE('$productid','$productName','$quantity','$price','$image','$customer_id')";
 
                 $result_order = $this->db->insert($query_order);
+                return $result_order;
             }
         }
     }
