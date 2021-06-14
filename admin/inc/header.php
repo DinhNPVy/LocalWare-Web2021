@@ -33,10 +33,13 @@ Session::checkSession();
 
 <body>
     <div class="container">
+
         <a class="navbar-brand logo fw-bolder fs-24 text-dark">
             <a href="index.php"><img src="./../img/Blue Calculator Icon Business Logo.png" alt="" style="height: 118px; border-radius: 100px;  margin-top: 25px" /></a>
         </a>
+        <?php include 'clock.php'; ?>
         <div class="navbar-header-admin">
+
             <div class="headermenu">
                 <div class="py-3 px-4 d-flex align-items-center justify-content-center border-left border-right flex-grow-1"><i class="fa fa-user mr-0 text-gray" style="font-size: 20px; color: grey;"></i>
                     <span>Hi <?php echo Session::get('adminName') . "!"

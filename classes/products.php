@@ -219,7 +219,14 @@ class products
     }
     public function getProductFeature()
     {
-        $query = "SELECT * FROM tbl_product where type = '1' LIMIT 12";
+        $sp_page = 4;
+        if (!isset($_GET['page'])) {
+            $trang = 1;
+        } else {
+            $trang = $_GET['page'];
+        }
+        $tung_trang = ($trang - 1) * $sp_page;
+        $query = "SELECT * FROM tbl_product where type = '1' LIMIT $tung_trang, $sp_page";
         $result = $this->db->select($query);
         return $result;
     }

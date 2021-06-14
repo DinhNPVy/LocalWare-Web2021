@@ -106,10 +106,24 @@ include 'inc/slider.php';
         <div class="row" style="    margin-right: -10px;margin-left: -10px;">
             <div class="xv-product-slides grid-view products" data-thumbnail="figure .xv-superimage" data-product=".xv-product-unit">
                 <div class="row">
-                    <ul class="breadcrumb">
+                    <ul class="">
                         <li><a href="featureproduct.php"><i class="fas fa-bullseye" style="font-size:40px; color:chartreuse;"></i>
                                 <span style="font-size: 30px;">Feature Products</span>
-                            </a></li>
+                            </a>
+                            <span class="phantrang" style="padding-left: 55%;">
+                                <?php
+                                $productNew = $product->get_all_product();
+                                $product_count = mysqli_num_rows($productNew);
+                                $product_button = ceil($product_count / 4);
+                                $i = 1;
+                                echo '<span>Page: </span>';
+                                for ($i = 1; $i <= $product_button; $i++) {
+                                    echo '<a style="margin:0 5px;" href="index.php?page=' . $i . '">' . $i . '</a>';
+                                }
+
+                                ?>
+                            </span>
+                        </li>
                         <!-- <li><a href="#">Products</a></li> -->
 
                     </ul>
