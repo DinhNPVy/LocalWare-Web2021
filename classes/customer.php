@@ -20,6 +20,38 @@ class customer
         $this->db = new Database();
         $this->fm = new Format();
     }
+    public function insert_review()
+    {
+        $reviewname = $_POST['reviewname'];
+        $reviewemail = $_POST['email'];
+        $review = $_POST['review'];
+        $product_id = $_POST['product_id_review'];
+
+        if ($reviewname == "" || $reviewemail == "" || $review == "") {
+            $alert = "<span class='error'>Fiels must be not empty</span>";
+            return $alert;
+        } else {
+            $check_mail = "SELECT * FROM tbl_customer WHERE email='$reviewemail' LIMIT 1";
+            $result = $this->db->select($check_mail);
+            if ($result) {
+                $alert = "<span class = 'Success'>Email Already Existend</span>";
+            } else {
+
+
+                $query = "INSERT INTO tbl_review(reviewName, review, product_id, email)
+                VALUE('$reviewname','$review', '$product_id','$reviewemail',)";
+                $result = $this->db->insert($query);
+
+                if ($result) {
+                    $alert = "<span class='Success'>Customer Created Successfully</span>";
+                    return $alert;
+                } else {
+                    $alert = "<span class='error'>Customer Created Not Successfully</span>";
+                    return $alert;
+                }
+            }
+        }
+    }
     public function insert_customer($data)
     {
         $name = mysqli_real_escape_string($this->db->link, $data['name']);

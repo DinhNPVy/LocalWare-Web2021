@@ -110,15 +110,17 @@ $brand = new brand();
             </div>
             <div class="col-lg-6 mb-2" style="padding-right:8%;">
                 <div class="search-box">
-                    <form action="">
+                    <form action="search.php" method="post">
                         <div>
-                            <input class="col-lg-4 mb-2 form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus" type="text" placeholder="Search Products..." value="Search Products" onfocus="this.value = ''; " onblur="if (this.value = '' ) {this.value='Search for Products';}">
+                            <input class="col-lg-4 mb-2 form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus" type="text" name="value" placeholder="Search Products..." value="Search Products" onfocus="this.value = ''; " onblur="if (this.value = '' ) {this.value='Search for Products';}">
                         </div>
                         <!-- <input class="col-lg-6 mb-2" type="text" value="Search Products" onfocus="this.value = ''; " onblur="if (this.value = '' ) {this.value='Search for Products';}"> -->
                         <div style=" padding-left: 105%; margin-top: -49px; display: flex; float: left;">
-                            <a href=""><i class="fa fa-search" type="submit"> </i></a>
-                            <!-- </div>
-                            <div class="col-lg-4 mb-2" style="display: flex; padding:10px"> -->
+                            <a href="search.php" type="submit" name="search_product"><i class="fa fa-search"> </i></a>
+
+                            <!-- </div> -->
+
+                            <!-- <div class="col-lg-4 mb-2" style="display: flex; padding:10px"> -->
                             <?php
                             if (isset($_GET['customer_id'])) {
                                 $cutomer_id = $_GET['customer_id'];
@@ -135,6 +137,7 @@ $brand = new brand();
                                 echo '<div class="col-lg-12 mb-2"><a href="?customer_id=' . Session::get("customer_id") . ' " class = "btn btn-dark">Sign out</a></div>';
                             }
                             ?>
+
                             <!-- <div class="col-lg-12 mb-2"><a href="signup.php" class="btn btn-primary" value="Sign up">Sign up</a></div> -->
                         </div>
                     </form>

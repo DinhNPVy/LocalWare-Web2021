@@ -139,7 +139,7 @@
                    </div>
                  </a>
                </li>
-               <li><a href="atlist.php" class="dd_menu_a">
+               <li><a href="sliderlist.php" class="dd_menu_a">
                    <div class="wrap">
                      <span class="icon"></span>
                      <span class="text">

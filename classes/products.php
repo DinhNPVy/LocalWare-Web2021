@@ -65,10 +65,17 @@ class products
     }
     public function show_slider()
     {
-        $query = "SELECT * FROM tbl_slider order by sliderId desc";
+        $query = "SELECT * FROM tbl_slider WHERE type = 1 order by sliderId desc";
         $result = $this->db->select($query);
         return $result;
     }
+    public function show_slider_list()
+    {
+        $query = "SELECT * FROM tbl_slider  order by sliderId desc";
+        $result = $this->db->select($query);
+        return $result;
+    }
+
 
     // DANH SACH SAN PHAM //
     public function show_products()
@@ -80,6 +87,14 @@ class products
          order by tbl_product.productId desc";
 
         //$query = "SELECT * FROM tbl_product order by productId desc";
+        $result = $this->db->select($query);
+        return $result;
+    }
+    public function search_product($value)
+    {
+        // kiem tra value có tồn tại chưa
+        $value = $this->fm->validation($value);
+        $query = "SELECT * FROM tbl_product WHERE productName LIKE '%$value%'";
         $result = $this->db->select($query);
         return $result;
     }
@@ -167,6 +182,27 @@ class products
             return $alert;
         }
     }
+    public function del_slider($id)
+    {
+        $query = "DELETE FROM tbl_slider WHERE sliderId = '$id'";
+        $result = $this->db->delete($query);
+        if ($result) {
+            $alert = "<span class='Success'> Slider Delete Successfully</span>";
+            return $alert;
+        } else {
+            $alert = "<span class='error'> Slider Delete Not Successfully</span>";
+            return $alert;
+        }
+    }
+
+    public function update_type_slider($id, $type)
+    {
+        $type = mysqli_real_escape_string($this->db->link, $type);
+        $query = "UPDATE tbl_slider SET type = '$type' WHERE sliderId = '$id' ";
+        $result = $this->db->update($query);
+        return $result;
+    }
+
     public function del_Wishlist($productid, $cutomer_id)
     {
         $query = "DELETE FROM tbl_wishlist WHERE productId = '$productid' AND customer_id = '$cutomer_id'";
@@ -181,16 +217,24 @@ class products
         $result = $this->db->select($query);
         return $result;
     }
-    public function getProductFeathered()
+    public function getProductFeature()
     {
-        $query = "SELECT * FROM tbl_product where type = '1'";
+        $query = "SELECT * FROM tbl_product where type = '1' LIMIT 12";
         $result = $this->db->select($query);
         return $result;
     }
 
     public function getProductNew()
     {
-        $query = "SELECT * FROM tbl_product order by productId desc LIMIT 4";
+
+        $sp_page = 4;
+        if (!isset($_GET['page'])) {
+            $trang = 1;
+        } else {
+            $trang = $_GET['page'];
+        }
+        $tung_trang = ($trang - 1) * $sp_page;
+        $query = "SELECT * FROM tbl_product order by productId desc LIMIT $tung_trang, $sp_page";
         $result = $this->db->select($query);
         return $result;
     }
@@ -200,6 +244,13 @@ class products
         $result = $this->db->select($query);
         return $result;
     }
+    public function get_all_product()
+    {
+        $query = "SELECT * FROM tbl_product";
+        $result = $this->db->select($query);
+        return $result;
+    }
+
     public function getProductByBrandId($brandid)
     {
         $query = "SELECT * FROM tbl_product where catId = $brandid  order by productId desc";
