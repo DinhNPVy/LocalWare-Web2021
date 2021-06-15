@@ -149,7 +149,7 @@ if (isset($_POST['review_submit'])) {
                             </li>
                             <li>
                                 <div class="quantity-control">
-                                    <span class="btn-cart btn-square btn-plus btn-qty"><i class="fa fa-plus"></i></span>
+                                    <!-- <span class="btn-cart btn-square btn-plus btn-qty"><i class="fa fa-plus"></i></span> -->
                                     <input type="number" data-invalid="Enter valid quantity" data-maxalert="Maximum limit reached" data-max="10" data-minalert="Minimum limit reached" name="quantity" value="1" min="1">
                                     <!-- <span class="btn-cart btn-square btn-minus btn-qty"><i class="fa fa-minus"></i></span> -->
                                 </div>
