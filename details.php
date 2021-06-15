@@ -44,218 +44,201 @@ if (isset($_POST['review_submit'])) {
     <link rel="stylesheet" href="css/materialdesignicons.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
+    <link rel="stylesheet" href="css/owlcarousel.css">
+    <link rel="stylesheet" href="css/flags.css">
+    <link rel="stylesheet" href="css/main.css">
 
 
 </head>
+<div class="container">
+    <div class="single-product-detail pt-60 pb-30">
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <div class="product-slider-wrap text-center shadow-around">
+                    <form action="" method="post">
+                        <div class="product-slide">
+                            <?php
+                            $productDetail = $product->getProductDetail($productid);
 
-<section class="section">
-    <div class="container">
-        <?php
-        $productDetail = $product->getProductDetail($productid);
-
-        if ($productDetail) {
-            while ($result_details = $productDetail->fetch_assoc()) {
-        ?>
-                <div class="row">
-                    <!-- <div class="col-lg-12"> 
-                        <div class="border-bottom">
-                            <nav class="pb-sm-3 pb-4" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-                                <ol class="breadcrumb mb-0">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item"><a href="#">Shop</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Product Details</li>
-                                </ol>
-                            </nav>
-                    </div>     -->
-                    <div class="row">
-
-                        <div class="col-5 mt-4">
-                            <img height="460px" class="border img-fluid rounded" src="admin/uploads/<?php echo $result_details["image"] ?>" />
-
-                            <!-- <div class="row">
-                                    <div class="col-md-6 mt-4">
-                                        <a href="#"><img class="border img-fluid rounded" src="images/products/pro-2.jpg" alt=""></a>
-                                    </div>
-                                    <div class="col-md-6 mt-4">
-                                        <a href="#"><img class="border img-fluid rounded" src="images/products/pro-3.jpg" alt=""></a>
-                                    </div> -->
-
+                            if ($productDetail) {
+                                while ($result_details = $productDetail->fetch_assoc()) {
+                            ?>
+                                    <figure>
+                                        <img src="admin/uploads/<?php echo $result_details["image"] ?>" alt="">
+                                    </figure>
                         </div>
-                    </div>
-                    <div class="col-md-7 mt-4">
-                        <div class="pro-detail-content my-3">
-                            <div class="price d-inline-block">
-                                <ins class="pe-1 fs-16 fw-semibold text-decoration-none">
-                                    <?php echo $fm->format_currency($result_details["price"]) ?>
-                                </ins>
+                        <!--product-slide-->
+                        <div class="product-slider styleDetail">
+                            <!-- <div class="detail-slider">
+                            <div class="owl-carousel slider_controls5" data-dots="false" data-prev="fa fa-angle-left" data-next="fa fa-angle-right" data-margin="20" data-slides="4" data-slides-md="3" data-slides-sm="1" data-loop="false" data-nav="true">
+                                <figure class="border-around">
+                                    <a href="#"><img src="assets/img/detail-product-slider-1.png" alt=""></a>
+                                </figure>
 
+                                <figure class="border-around">
+                                    <a href="#"><img src="assets/img/detail-product-slider-1.png" alt=""></a>
+                                </figure>
+
+
+                                <figure class="border-around">
+                                    <a href="#"><img src="assets/img/detail-product-slider-1.png" alt=""></a>
+                                </figure>
+                                <figure class="border-around">
+                                    <a href="#"><img src="assets/img/detail-product-slider-1.png" alt=""></a>
+                                </figure>
+                                <figure class="border-around">
+                                    <a href="#"><img src="assets/img/detail-product-slider-1.png" alt=""></a>
+                                </figure>
                             </div>
-                            <div class="rating d-inline-block ps-4">
 
-                                <h5 class="d-inline-block fs-16">5.0 <div class="fa fa-star" style="color: yellow;"></div>
-                                </h5>
-                            </div>
+                        </div> -->
+                            <!--product-slider-->
+                        </div>
+                </div>
+                <!--column-6-->
 
-                            <a href="#">
-                                <h4 class="fw-medium lh-base my-1"><?php echo $result_details["productName"] ?></h4>
-                            </a>
+            </div>
+            <!--column-6-->
+            <div class="col-xs-12 col-md-6">
+                <div class="single-product-overview">
+                    <h2><?php echo $result_details["productName"] ?></h2>
+                    <div class="xv-rating stars-5"></div>
+                    <ul class="review">
+                        <li>15 Review(s)&emsp;</li>
+                        <li><a href="#">Make a Review</a></li>
+                    </ul>
+                    <p class="no-mar"> <?php echo $fm->textShorten($result_details['product_desc'], 500) ?></p>
+                    <ul class="product-description mt-35 mb-35">
+                        <span>Availability</span>: <?php
+                                                    if ($result_details['type'] == 0) {
+                                                        echo 'Feature';
+                                                    } else {
+                                                        echo 'Non-Feature';
+                                                    }
+                                                    ?>
 
-                            <form action="" method="post">
-                                <div class="qty mb-4">
+                    </ul>
+                    <div class="cart-options">
+                        <a href="#" class="price"><span> <?php echo $fm->format_currency($result_details["price"]) ?></span> </a>
+                        <ul class="cart-buttons mt-45 clearfix">
+                            <!-- <li class="btn-color-opt">
 
-                                    <h5 class="d-inline-block">Select Items :</h5>
-                                    <input type="number" class="col-lg-12 mb-2 form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus" name="quantity" value="1" min="1">
+                                <div class="custome-select">-->
 
+                            <p>Select a Category <b class="fa fa-caret-down"></b></p>
+                            <?php
+                                    $getall_category = $cate->show_category_fontend();
+                                    if ($getall_category) {
+                                        while ($result_allcat = $getall_category->fetch_assoc()) {
+
+                            ?>
+
+                                    <li btn-color-opt>
+                                        <a href="productbycat.php?catid=<?php echo $result_allcat['catId'] ?>"><?php echo $result_allcat['catName'] ?></a>
+                                    </li>
+
+
+                            <?php
+                                        }
+                                    }
+
+                            ?>
+
+                            <!-- </div> -->
+
+                            </li>
+                            <li>
+                                <div class="quantity-control">
+                                    <span class="btn-cart btn-square btn-plus btn-qty"><i class="fa fa-plus"></i></span>
+                                    <input type="number" data-invalid="Enter valid quantity" data-maxalert="Maximum limit reached" data-max="10" data-minalert="Minimum limit reached" name="quantity" value="1" min="1">
+                                    <!-- <span class="btn-cart btn-square btn-minus btn-qty"><i class="fa fa-minus"></i></span> -->
                                 </div>
-                                <div class="color mb-4">
-                                    <h5 class="d-inline-block">Color :</h5>
-                                    <ul class="d-inline-block list-unstyled list-inline align-middle ms-4 mb-0">
-                                        <li class="list-inline-item me-0">
-                                            <a href="#"><i class="fa fa-square fs-5 text-success"></i></a>
-                                        </li>
-                                        <li class="list-inline-item me-0">
-                                            <a href="#"><i class="fa fa-square fs-5 text-primary"></i></a>
-                                        </li>
-                                        <li class="list-inline-item me-0">
-                                            <a href="#"><i class="fa fa-square fs-5 text-danger"></i></a>
-                                        </li>
-                                        <li class="list-inline-item me-0">
-                                            <a href="#"><i class="fa fa-square fs-5 text-warning"></i></a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="#"><i class="fa fa-square fs-5 text-dark"></i></a>
-                                        </li>
+                            </li>
 
-                                    </ul>
-                                </div>
-                                <div class="availability mb-4" style="display: inline-flex;">
-                                    <h5 class="d-inline-block">availability: </h5>
+                        </ul>
 
-                                    <h5 style="color: green;"><?php
-                                                                if ($result_details['type'] == 0) {
-                                                                    echo 'Feathered';
-                                                                } else {
-                                                                    echo 'Non-Feathered';
-                                                                }
-                                                                ?></h5>
-                                </div>
-                                <div class="hover-content bg-white">
 
-                                    <i class="fa fa-shopping-cart" style="color: gray;"><i class="fs-18 fw-bolder pro-icon align-middle"></i> <input type="submit" class="btn btn-primary me-2 my-2" name="submit" value="Add To Cart"> </i></input>
-
-                                </div>
-
-                            </form>
-                            <p>
+                        <!--cart-buttons-->
+                        <p></p>
+                        <?php
+                                    if (isset($insertCart)) {
+                                        echo '<span style="color: red; font-size: 18px">The product already exists in the shopping cart</span>';
+                                    }
+                        ?></p>
+                        <input type="submit" class="btn btn-continue" name="submit" value="Add To Cart"></input>
+                        <div class="hover-content ">
+                            <form action=" " method="POST">
+                                <input type="hidden" class="btn btn-primary me-2 my-2" name="productid" value="<?php echo $result_details['productId'] ?>" />
+                                <i class="fas fa-heart" style="color: hotpink;"></i><i class="fs-18 fw-bolder pro-icon align-middle"></i> <a href="?wlist=<?php echo $result_details['productId'] ?>"> </i></a>
                                 <?php
-                                if (isset($insertCart)) {
-                                    echo '<span style="color: red; font-size: 18px">The product already exists in the shopping cart</span>';
-                                }
-                                ?></p>
-
-
-
-
-
-
-                            <div class="hover-content bg-white">
-                                <form action=" " method="POST">
-                                    <input type="hidden" class="btn btn-primary me-2 my-2" name="productid" value="<?php echo $result_details['productId'] ?>" />
-                                    <i class="fas fa-heart" style="color: hotpink;"></i><i class="fs-18 fw-bolder pro-icon align-middle"></i> <a href="?wlist=<?php echo $result_details['productId'] ?>"> </i></a>
-                                    <?php
                                     $login_check = Session::get('customer_signin');
                                     if ($login_check) {
                                         echo ' <input type="submit" class="btn btn-primary me-2 my-2" name="wishlist" value="Yêu thích">';
                                     } else {
                                         echo '';
                                     }
-                                    ?>
-                                    <?php
+                                ?>
+                                <?php
                                     if (isset($insertWishlist)) {
                                         echo $insertWishlist;
                                     }
-                                    ?>
+                                ?>
 
-                                </form>
+                            </form>
 
-                                <form action=" " method="POST">
-                                    <input type="hidden" class="btn btn-primary me-2 my-2" name="productid" value="<?php echo $result_details['productId'] ?>" />
-                                    <i class="fab fa-asymmetrik" style="color: greenyellow;"></i><i class="fs-18 fw-bolder pro-icon align-middle"></i><a href="?compare=<?php echo $result_details['productId'] ?>"></a>
-                                    <?php
+                            <form action=" " method="POST">
+                                <input type="hidden" class="btn btn-primary me-2 my-2" name="productid" value="<?php echo $result_details['productId'] ?>" />
+                                <i class="fab fa-asymmetrik" style="color: greenyellow;"></i><i class="fs-18 fw-bolder pro-icon align-middle"></i><a href="?compare=<?php echo $result_details['productId'] ?>"></a>
+                                <?php
                                     $login_check = Session::get('customer_signin');
                                     if ($login_check) {
                                         echo ' <input type="submit" class="btn btn-primary me-2 my-2" name="compare" value="So Sánh">';
                                     } else {
                                         echo '';
                                     }
-                                    ?>
-                                    <?php
+                                ?>
+                                <?php
                                     if (isset($insertCompare)) {
                                         echo $insertCompare;
                                     }
-                                    ?>
+                                ?>
 
-                                </form>
-
-
-                            </div>
+                            </form>
 
 
                         </div>
+                        <!-- <a class="btn btn-continue">ADD TO CART</a> -->
                     </div>
-                    <div class="col-md-12 mt-4" style="padding-left: 30%; padding-bottom: 33%;">
-                        <h2>CATEGORIES</h2>
-                        <ul>
-                            <?php
-                            $getall_category = $cate->show_category_fontend();
-                            if ($getall_category) {
-                                while ($result_allcat = $getall_category->fetch_assoc()) {
 
-                            ?>
-                                    <div class="tab-content border-bottom pt-4" id="nav-tabContent">
-                                        <li><a href="productbycat.php?catid=<?php echo $result_allcat['catId'] ?>"><?php echo $result_allcat['catName'] ?></a></li>
-                                    </div>
-                            <?php
+
+                    <!--cart-options-->
+                </div>
+                <!--single-product-overview-->
+            </div>
+            </form>
+            <!--column-6-->
+        </div>
+        <!--single-product-detail-->
+        <div class="tabs-pane mt-60">
+            <ul class="tab-sections">
+                <li class="active"><a href="#tab01" class="btn-cart">Description</a></li>
+
+            </ul>
+            <div class="tab-panels">
+                <div id="tab01" class="tab-content active">
+                    <p> <?php echo $fm->textShorten($result_details['product_desc'], 10000) ?>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php
                                 }
                             }
+?>
 
-                            ?>
-                        </ul>
-                    </div>
-                </div>
-
-    </div>
-    </div>
-    </div>
-</section>
-<!-- end pro-detail -->
-
-<!-- detail tab -->
-<section class="section">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <nav class="pro-detail-area">
-                    <div class="nav nav-tabs detail-title" id="nav-tab" role="tablist">
-                        <a class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Description</a>
-
-                    </div>
-                </nav>
-                <div class="tab-content border-bottom pt-4" id="nav-tabContent">
-
-                    <?php echo $fm->textShorten($result_details['product_desc'], 100000) ?>
-
-
-                </div> <?php
-                    }
-                }
-                        ?>
-
-
-            </div>
-</section>
-<!-- end detail tab -->
 <div>
     <h4 class="mt-5 mb-3" style="padding-left: 8.5%;">Add Your Review: <span><?php
                                                                                 if (isset($review)) {
@@ -291,27 +274,7 @@ if (isset($_POST['review_submit'])) {
                 </div>
             </div>
         </div>
-        <div class="row">
-            <h5 class="align-middle">Add Your Review :
-                <ul class="list-unstyled list-inline mt-2">
-                    <li class="list-inline-item me-0">
-                        <i class="fa fa-star fs-17 text-warning"></i>
-                    </li>
-                    <li class="list-inline-item me-0">
-                        <i class="fa fa-star fs-17 text-warning"></i>
-                    </li>
-                    <li class="list-inline-item me-0">
-                        <i class="fa fa-star fs-17 text-warning"></i>
-                    </li>
-                    <li class="list-inline-item me-0">
-                        <i class="fa fa-star fs-17 text-warning"></i>
-                    </li>
-                    <li class="list-inline-item me-0">
-                        <i class="fa fa-star fs-17 text-warning"></i>
-                    </li>
-                </ul>
-            </h5>
-        </div>
+
         <div class="row">
             <div class="col-lg-12 mt-2" style="text-align: center;">
                 <input type="submit" name="review_submit" class="btn btn-primary" value="Send Review" />

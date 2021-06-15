@@ -19,7 +19,7 @@ include 'inc/header.php';
 </section>
 
 <?php
-include 'inc/slider.php';
+// include 'inc/slider.php';
 ?>
 
 <body>
