@@ -19,7 +19,7 @@ if (isset($_GET['delid'])) {
     <div class="container">
         <div class="cartoption">
             <div class="cartpage">
-                <h3>Danh sách sản phẩm</h3>
+                <h3>List Of Products</h3>
                 <?php
                 if (isset($delCat)) {
                     echo $delCat;

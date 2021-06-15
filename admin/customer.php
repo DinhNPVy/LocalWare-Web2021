@@ -26,7 +26,7 @@ $cust = new customer();
 
 <div class="gird_10">
     <div class="box round first grid">
-        <h2>Thông tin khách hàng</h2>
+        <h2>Customer Information</h2>
 
         <div class="block copyblock">
             <?php

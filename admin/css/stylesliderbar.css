@@ -44,10 +44,7 @@
 }
 
 
-.navbar ul li a .icon {
-  width: 25px;
-  display: inline-block;
-}
+
 
 .navbar ul li a:hover,
 .navbar ul li a.a_parent.active,
@@ -68,8 +65,8 @@
 }
 
 .navbar .dd_menu ul li a {
-  text-align: left;
-  padding: 20px 10px 5px 10px;
+  text-align: center;
+  padding: 10px;
   background-color: rgb(34, 138, 172);
 }
 

@@ -251,6 +251,33 @@ class products
         $result = $this->db->select($query);
         return $result;
     }
+    public function getLastedDell()
+    {
+        $query = "SELECT * FROM tbl_product WHERE brandId = 1 ORDER BY productId DESC LIMIT 1 ";
+        $result = $this->db->select($query);
+        return $result;
+    }
+
+    public function getLastedIphone()
+    {
+        $query = "SELECT * FROM tbl_product WHERE brandId = 7 ORDER BY productId DESC LIMIT 1 ";
+        $result = $this->db->select($query);
+        return $result;
+    }
+
+    public function getLastedXiaomi()
+    {
+        $query = "SELECT * FROM tbl_product WHERE brandId = 3 ORDER BY productId DESC LIMIT 1 ";
+        $result = $this->db->select($query);
+        return $result;
+    }
+
+    public function getLastedSamsung()
+    {
+        $query = "SELECT * FROM tbl_product WHERE brandId = 2 ORDER BY productId DESC LIMIT 1 ";
+        $result = $this->db->select($query);
+        return $result;
+    }
     public function get_all_product()
     {
         $query = "SELECT * FROM tbl_product";

@@ -18,7 +18,7 @@
            <a href="#" class="a_parent">
              <div class="wrap">
                <span class="icon"><img src="img/clipboard-list-solid.svg" alt="" style="height: 20px;"></span>
-               <span class="text"> DANH MỤC </span>
+               <span class="text"> CATEGORY </span>
              </div>
            </a>
 
@@ -27,9 +27,9 @@
                <li>
                  <a href="catadd.php" class="dd_menu_a">
                    <div class="wrap">
-                     <span class="icon"></span>
+
                      <span class="text">
-                       Thêm danh mục
+                       Add category
                      </span>
 
                    </div>
@@ -38,9 +38,9 @@
                <li>
                  <a href="catlist.php" class="dd_menu_a">
                    <div class="wrap">
-                     <span class="icon"></span>
+
                      <span class="text">
-                       Danh mục sản phẩm
+                       Product category
                      </span>
 
                    </div>
@@ -54,7 +54,7 @@
              <div class="wrap">
                <span class="icon"><img src="img/code-branch-solid.svg" style="height: 20px;" alt=""></span>
                <span class="text">
-                 THƯƠNG HIỆU
+                 BRAND
                </span>
 
              </div>
@@ -63,9 +63,9 @@
              <ul>
                <li><a href="brandadd.php" class="dd_menu_a">
                    <div class="wrap">
-                     <span class="icon"></span>
+
                      <span class="text">
-                       Thêm thương hiệu
+                       Add Brand
                      </span>
 
                    </div>
@@ -73,9 +73,9 @@
                </li>
                <li><a href="brandlist.php" class="dd_menu_a">
                    <div class="wrap">
-                     <span class="icon"></span>
+
                      <span class="text">
-                       Danh sách thương hiệu
+                       Brand List
                      </span>
 
                    </div>
@@ -88,7 +88,7 @@
              <div class="wrap">
                <span class="icon"><img src="img/product-hunt-brands.svg" style="height: 20px;" alt=""></span>
                <span class="text">
-                 SẢN PHẨM
+                 PRODUCT
                </span>
 
              </div>
@@ -97,19 +97,18 @@
              <ul>
                <li><a href="productadd.php" class="dd_menu_a">
                    <div class="wrap">
-                     <span class="icon"></span>
+
                      <span class="text">
-                       Thêm sản phẩm
+                       Add Products
                      </span>
 
                    </div>
                  </a>
                </li>
                <li><a href="productlist.php" class="dd_menu_a">
-                   <div class="wrap">
-                     <span class="icon"></span>
+                   <div class="wrap"> <span class="icon"></span>
                      <span class="text">
-                       Danh sách sản phẩm
+                       List Of Products
                      </span>
 
                    </div>
@@ -131,9 +130,9 @@
              <ul>
                <li><a href="slideradd.php" class="dd_menu_a">
                    <div class="wrap">
-                     <span class="icon"></span>
+
                      <span class="text">
-                       Thêm slider
+                       Add Slider
                      </span>
 
                    </div>
@@ -141,9 +140,9 @@
                </li>
                <li><a href="sliderlist.php" class="dd_menu_a">
                    <div class="wrap">
-                     <span class="icon"></span>
+
                      <span class="text">
-                       Danh sách slider
+                       Slider List
                      </span>
 
                    </div>

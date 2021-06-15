@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Thêm Danh Mục</h4>
+                                <h4 class="card-title">Add Category</h4>
                                 <?php
                                 if (isset($insertCat)) {
                                     echo $insertCat;
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                                     <div class="category">
 
-                                        <input class="col-lg-12 mb-2 form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus" type="text" name="catName" placeholder="Thêm danh mục...">
+                                        <input class="col-lg-12 mb-2 form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus" type="text" name="catName" placeholder="Please Add Category...">
                                     </div>
 
                                     <input class="btn btn-primary" type="submit" name="submit" value="Save">

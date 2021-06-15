@@ -33,7 +33,7 @@ if (isset($_GET['delid'])) {
     <div class="container">
         <div class="cartoption">
             <div class="cartpage">
-                <h3>Danh sách sản phẩm</h3>
+                <h3>List Of Products</h3>
                 <?php
                 if (isset($shifted)) {
                     echo $shifted;
@@ -103,7 +103,7 @@ if (isset($_GET['delid'])) {
                                                         <td><?php echo $result['productName'] ?></td>
 
                                                         <td><?php echo $result['quantity'] ?></td>
-                                                        <td><?php echo $result['price'] . '' . 'VNĐ' ?></td>
+                                                        <td><?php echo $fm->format_currency($result['price']) ?></td>
                                                         <td><?php echo $result['customer_id'] ?></td>
                                                         <td><a href="customer.php?customerid=<?php echo $result['customer_id'] ?>">View Address</a></td>
                                                         <td>
@@ -111,7 +111,7 @@ if (isset($_GET['delid'])) {
                                                             if ($result['status'] == 0) {
                                                             ?>
 
-                                                                <a href="?shiftid=<?php echo $result['id'] ?>&price=<?php echo $result['price'] . ''  ?>&time=<?php echo $result['date_order'] ?> ">Đang vận chuyển</a>
+                                                                <a href="?shiftid=<?php echo $result['id'] ?>&price=<?php echo $result['price'] . ''  ?>&time=<?php echo $result['date_order'] ?> ">Transporting</a>
                                                             <?php
                                                             } else if ($result['status'] == 1) {
                                                             ?>
@@ -121,7 +121,7 @@ if (isset($_GET['delid'])) {
                                                             } elseif ($result['status'] == 2) {
 
                                                             ?>
-                                                                <a href="?delid=<?php echo $result['id'] ?>&price=<?php echo $result['price'] . '' ?>&time=<?php echo $result['date_order'] ?> ">Xóa</a>
+                                                                <a href="?delid=<?php echo $result['id'] ?>&price=<?php echo $result['price'] . '' ?>&time=<?php echo $result['date_order'] ?> ">Delete</a>
                                                             <?php
                                                             }
                                                             ?>

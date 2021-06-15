@@ -31,7 +31,7 @@ if (isset($_GET['del_slider'])) {
     <div class="container">
         <div class="cartoption">
             <div class="cartpage">
-                <h3>Danh sách sản phẩm</h3>
+                <h3>Slider List</h3>
                 <?php
                 if (isset($delSlider)) {
                     echo $delSlider;
