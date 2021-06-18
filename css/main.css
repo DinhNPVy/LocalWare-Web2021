@@ -2324,7 +2324,6 @@ new product
 
 .xv-product a:hover {
     text-decoration: none;
-    
 }
 
 .xv-product figure {
@@ -2460,6 +2459,7 @@ a.product-buy {
 .xv-product-content h3 {
     margin: 0;
     padding: 5px 0;
+    height: 45%;
 }
 
 .xv-product-content h3 a {
