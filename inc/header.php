@@ -170,8 +170,54 @@ $brand = new brand();
 
         </div>
     </nav>
+    <!-- MENU -->
+    <style>
+        ul.menu_nav {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: rgb(101, 211, 236);
+        }
+
+        li.menu_nav_item {
+            float: left;
+        }
+
+        li.menu_nav_item a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li.menu_nav_item a:hover {
+            background-color: rgb(32, 200, 238);
+        }
+    </style>
+    <ul class="menu_nav">
+        <?php
+        $getall_category = $cate->show_category_fontend();
+        if ($getall_category) {
+            while ($result_allcat = $getall_category->fetch_assoc()) {
+
+        ?>
+
+                <li btn-color-opt class="menu_nav_item">
+                    <a href="productbycat.php?catid=<?php echo $result_allcat['catId'] ?>"><?php echo $result_allcat['catName'] ?></a>
+                </li>
+
+
+        <?php
+            }
+        }
+
+        ?>
+    </ul>
 
     <script src="../js/thatim.js"></script>
+
 </body>
 
 </html>

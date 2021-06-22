@@ -54,6 +54,7 @@ if (isset($_POST['review_submit'])) {
     <div class="single-product-detail pt-60 pb-30">
         <div class="row">
             <div class="col-xs-12 col-md-6">
+
                 <div class="product-slider-wrap text-center shadow-around">
                     <form action="" method="post">
                         <div class="product-slide">

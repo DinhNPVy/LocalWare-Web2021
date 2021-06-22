@@ -1,6 +1,9 @@
 <?php
 include 'inc/header.php';
 ?>
+
+
+<!-- STORY -->
 <section>
     <div class="fluid-container">
         <div class="row text-center">

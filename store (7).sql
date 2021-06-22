@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 22, 2021 lúc 09:57 AM
+-- Thời gian đã tạo: Th6 22, 2021 lúc 11:17 AM
 -- Phiên bản máy phục vụ: 10.4.18-MariaDB
 -- Phiên bản PHP: 7.3.27
 
@@ -144,8 +144,8 @@ INSERT INTO `tbl_category` (`catId`, `catName`) VALUES
 
 CREATE TABLE `tbl_compare` (
   `id` int(11) NOT NULL,
-  `customer_id` int(11) NOT NULL,
-  `productId` int(11) NOT NULL,
+  `customer_id` int(11) UNSIGNED NOT NULL,
+  `productId` int(11) UNSIGNED NOT NULL,
   `productName` varchar(255) NOT NULL,
   `price` int(11) NOT NULL,
   `image` varchar(255) NOT NULL
@@ -199,9 +199,7 @@ CREATE TABLE `tbl_order` (
 
 INSERT INTO `tbl_order` (`id`, `productId`, `productName`, `customer_id`, `quantity`, `price`, `image`, `status`, `date_order`) VALUES
 (25, 24, 'Điện thoại iPhone 12 Pro 256GB', 2, 1, 33990000, '94eff32b93.jpg', 1, '2021-05-20 15:20:39'),
-(26, 9, 'Lenovo - ceneral due core', 2, 1, 16690000, '4c8d42e0b1.jpg', 2, '2021-05-20 16:05:11'),
 (27, 24, 'Điện thoại iPhone 12 Pro 256GB', 2, 1, 33990000, '94eff32b93.jpg', 2, '2021-05-28 03:38:52'),
-(28, 39, 'Điện thoại OPPO Reno4 Pro ', 2, 1, 10490000, '1ed8c91280.jpg', 0, '2021-06-11 04:49:22'),
 (29, 20, 'Đồng hồ Nữ Nakzen SS8012LD-7N3 ', 2, 9, 17820000, '897c5f0bf8.jpg', 0, '2021-06-14 07:00:00');
 
 -- --------------------------------------------------------
@@ -737,19 +735,9 @@ CREATE TABLE `tbl_review` (
   `review_id` int(11) NOT NULL,
   `reviewName` varchar(255) NOT NULL,
   `review` text NOT NULL,
-  `product_id` int(11) NOT NULL,
+  `product_id` int(11) UNSIGNED NOT NULL,
   `blog_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Đang đổ dữ liệu cho bảng `tbl_review`
---
-
-INSERT INTO `tbl_review` (`review_id`, `reviewName`, `review`, `product_id`, `blog_id`) VALUES
-(1, 'vy', 'xin chao', 39, 0),
-(2, 'vy', 'hi ', 39, 0),
-(3, 'vy', 'gì đây', 39, 0),
-(4, 'vy', 'chào', 36, 0);
 
 -- --------------------------------------------------------
 
@@ -782,8 +770,8 @@ INSERT INTO `tbl_slider` (`sliderId`, `sliderName`, `slider_image`, `type`) VALU
 
 CREATE TABLE `tbl_wishlist` (
   `id` int(11) NOT NULL,
-  `customer_id` int(11) NOT NULL,
-  `productId` int(11) NOT NULL,
+  `customer_id` int(11) UNSIGNED NOT NULL,
+  `productId` int(11) UNSIGNED NOT NULL,
   `productName` varchar(255) NOT NULL,
   `price` int(11) NOT NULL,
   `image` varchar(255) NOT NULL
@@ -795,8 +783,6 @@ CREATE TABLE `tbl_wishlist` (
 
 INSERT INTO `tbl_wishlist` (`id`, `customer_id`, `productId`, `productName`, `price`, `image`) VALUES
 (2, 2, 23, 'Điện thoại iPhone 12 Pro Max 512GB', 41490000, '17b625bdac.jpg'),
-(4, 2, 37, 'Điện thoại OPPO Reno5  ', 8690000, '5c0821a3c1.jpg'),
-(5, 2, 39, 'Điện thoại OPPO Reno4 Pro ', 10490000, '1ed8c91280.jpg'),
 (6, 2, 14, 'Đồng hồ Nữ Nakzen SL4118LBK-1', 1090000, '31583f3294.jpg'),
 (7, 2, 17, 'Đồng hồ Nữ Nakzen SS4109L-7NR ', 1980000, 'a0c3cd5620.jpg');
 
@@ -833,7 +819,9 @@ ALTER TABLE `tbl_category`
 -- Chỉ mục cho bảng `tbl_compare`
 --
 ALTER TABLE `tbl_compare`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `customer_id` (`customer_id`,`productId`),
+  ADD KEY `productId` (`productId`);
 
 --
 -- Chỉ mục cho bảng `tbl_customer`
@@ -861,7 +849,8 @@ ALTER TABLE `tbl_product`
 -- Chỉ mục cho bảng `tbl_review`
 --
 ALTER TABLE `tbl_review`
-  ADD PRIMARY KEY (`review_id`);
+  ADD PRIMARY KEY (`review_id`),
+  ADD KEY `product_id` (`product_id`);
 
 --
 -- Chỉ mục cho bảng `tbl_slider`
@@ -873,7 +862,9 @@ ALTER TABLE `tbl_slider`
 -- Chỉ mục cho bảng `tbl_wishlist`
 --
 ALTER TABLE `tbl_wishlist`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `customer_id` (`customer_id`,`productId`),
+  ADD KEY `productId` (`productId`);
 
 --
 -- AUTO_INCREMENT cho các bảng đã đổ
@@ -950,10 +941,18 @@ ALTER TABLE `tbl_cart`
   ADD CONSTRAINT `tbl_cart_ibfk_1` FOREIGN KEY (`productId`) REFERENCES `tbl_product` (`productId`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
+-- Các ràng buộc cho bảng `tbl_compare`
+--
+ALTER TABLE `tbl_compare`
+  ADD CONSTRAINT `tbl_compare_ibfk_1` FOREIGN KEY (`productId`) REFERENCES `tbl_product` (`productId`),
+  ADD CONSTRAINT `tbl_compare_ibfk_2` FOREIGN KEY (`customer_id`) REFERENCES `tbl_customer` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
 -- Các ràng buộc cho bảng `tbl_order`
 --
 ALTER TABLE `tbl_order`
-  ADD CONSTRAINT `tbl_order_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `tbl_customer` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+  ADD CONSTRAINT `tbl_order_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `tbl_customer` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `tbl_order_ibfk_2` FOREIGN KEY (`productId`) REFERENCES `tbl_product` (`productId`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Các ràng buộc cho bảng `tbl_product`
@@ -961,6 +960,19 @@ ALTER TABLE `tbl_order`
 ALTER TABLE `tbl_product`
   ADD CONSTRAINT `tbl_product_ibfk_1` FOREIGN KEY (`catId`) REFERENCES `tbl_category` (`catId`) ON DELETE CASCADE ON UPDATE NO ACTION,
   ADD CONSTRAINT `tbl_product_ibfk_2` FOREIGN KEY (`brandId`) REFERENCES `tbl_brand` (`brandId`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- Các ràng buộc cho bảng `tbl_review`
+--
+ALTER TABLE `tbl_review`
+  ADD CONSTRAINT `tbl_review_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `tbl_product` (`productId`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- Các ràng buộc cho bảng `tbl_wishlist`
+--
+ALTER TABLE `tbl_wishlist`
+  ADD CONSTRAINT `tbl_wishlist_ibfk_1` FOREIGN KEY (`productId`) REFERENCES `tbl_product` (`productId`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `tbl_wishlist_ibfk_2` FOREIGN KEY (`customer_id`) REFERENCES `tbl_customer` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
