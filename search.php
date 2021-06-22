@@ -81,34 +81,7 @@ include "inc/header.php";
             <!-- end categories -->
 
 
-            <div class="border rounded">
-                <div class="p-3 bg-light rounded">
-                    <h5 class="mb-0">Brand:
-                        <!-- <?php
-                                echo $value;
-                                ?> -->
-                    </h5>
 
-                </div>
-
-                <div class="customeField">
-                    <?php
-                    $brand = new brand();
-                    $getall_brand = $brand->show_brand();
-                    if ($getall_brand) {
-                        while ($result_allbrand = $getall_brand->fetch_assoc()) {
-
-                    ?>
-
-                            <li> <a href="productbybrand.php?brandid=<?php echo $result_allbrand['brandId'] ?>"><?php echo $result_allbrand['brandName'] ?></a></li>
-
-                    <?php
-                        }
-                    }
-
-                    ?>
-                </div>
-            </div>
 
 
             <section class="widget widget_tag_cloud pt-30">

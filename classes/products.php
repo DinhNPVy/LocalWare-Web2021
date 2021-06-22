@@ -94,7 +94,7 @@ class products
     {
         // kiem tra value có tồn tại chưa
         $value = $this->fm->validation($value);
-        $query = "SELECT * FROM tbl_product WHERE productName LIKE '%$value%'";
+        $query = "SELECT * FROM tbl_product WHERE productName LIKE '%$value%' LIMIT 52";
         $result = $this->db->select($query);
         return $result;
     }
@@ -280,7 +280,7 @@ class products
     }
     public function get_all_product()
     {
-        $query = "SELECT * FROM tbl_product";
+        $query = "SELECT * FROM tbl_product LIMIT 80";
         $result = $this->db->select($query);
         return $result;
     }

@@ -37,10 +37,10 @@ include 'inc/slider_1.php';
                                 <?php
                                 $productNew = $product->get_all_product();
                                 $product_count = mysqli_num_rows($productNew);
-                                $product_button = ceil($product_count / 4);
+                                $product_button = ceil($product_count / 12);
                                 $i = 1;
                                 echo '<span>Page: </span>';
-                                for ($i = 1; $i <= $product_button; $i++) {
+                                for ($i = 1; $i <= 6; $i++) {
                                     echo '<a style="margin:0 5px;" href="index.php?page=' . $i . '">' . $i . '</a>';
                                 }
 
@@ -117,7 +117,7 @@ include 'inc/slider_1.php';
                                 $product_button = ceil($product_count / 4);
                                 $i = 1;
                                 echo '<span>Page: </span>';
-                                for ($i = 1; $i <= $product_button; $i++) {
+                                for ($i = 1; $i <= 6; $i++) {
                                     echo '<a style="margin:0 5px;" href="index.php?page=' . $i . '">' . $i . '</a>';
                                 }
 
