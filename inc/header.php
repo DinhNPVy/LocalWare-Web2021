@@ -96,7 +96,7 @@ $brand = new brand();
                     }
                     ?>
 
-                    <li class="nav-item"><a href="contact.php" class="nav-link sub-menu-item">Contact</a></li>
+
                     <?php
                     $login_check = Session::get('customer_signin');
                     if ($login_check == false) {

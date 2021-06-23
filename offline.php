@@ -19,7 +19,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['submit'])) {
 
 ?>
 <!DOCTYPE html>
-<link rel="stylesheet" href="css/styleprofile.css">
+    <link rel="stylesheet" href="css/styleprofile.css">
+   
+    <link rel="stylesheet" href="css/styledetails.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/materialdesignicons.min.css">
+
+
+
+
 <html lang="en">
 
 

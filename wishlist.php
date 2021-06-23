@@ -12,15 +12,15 @@ if (isset($_GET['productid'])) {
     $delWishlist = $product->del_Wishlist($productid, $customer_id);
 }
 ?> <?php
-            // if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['submit'])) {
-            //     $cartId = $_POST['cartId'];
-            //     $quantity = $_POST['quantity'];
-            //     $update_quantityCart = $ct->update_quantity_Cart($quantity, $cartId);
-            //     if ($quantity <= 0) {
-            //         $delProductCart = $ct->del_ProductCart($cartId);
-            //     }
-            // }
-            ?> <?php
+    // if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['submit'])) {
+    //     $cartId = $_POST['cartId'];
+    //     $quantity = $_POST['quantity'];
+    //     $update_quantityCart = $ct->update_quantity_Cart($quantity, $cartId);
+    //     if ($quantity <= 0) {
+    //         $delProductCart = $ct->del_ProductCart($cartId);
+    //     }
+    // }
+    ?> <?php
         if (!isset($_GET['id'])) {
             echo "<meta http-equiv='refresh' content='0; URL=?id=live'>";
         }
@@ -69,7 +69,7 @@ if (isset($_GET['productid'])) {
                                     <nav class="pb-sm-3 pb-4" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                                         <ol class="breadcrumb mb-0">
                                             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">Compare</li>
+                                            <li class="breadcrumb-item active" aria-current="page">Wishlist</li>
                                         </ol>
                                     </nav>
                                 </div>

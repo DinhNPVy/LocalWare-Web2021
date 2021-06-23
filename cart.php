@@ -3,6 +3,23 @@ include 'inc/header.php';
 
 
 ?>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="././admin/css/layout.css">
+<link rel="stylesheet" href="css/bootstrap.css.map">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/styledetails.css">
+<link rel="stylesheet" href="css/style.min.css">
+<link rel="stylesheet" href="css/materialdesignicons.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/styleprofile.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+
+
+
 <?php
 
 if (isset($_GET['cartid'])) {
@@ -101,9 +118,9 @@ if (!isset($_GET['id'])) {
                                                         <td><?php echo $fm->format_currency($result['price']) ?></td>
                                                         <td>
                                                             <form action="" method="post">
-                                                                <input type="hidden" name="cartId" value="<?php echo $result['cartId'] ?>" />
-                                                                <input type="number" min="0" name="quantity" value="<?php echo $result['quantity'] ?>" />
-                                                                <input type="submit" name="submit" value="Update" />
+                                                                <input class="col-lg-12 mb-2 form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus" type="hidden" name="cartId" value="<?php echo $result['cartId'] ?>" />
+                                                                <input class="col-lg-12 mb-2 form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus" type="number" min="0" name="quantity" value="<?php echo $result['quantity'] ?>" />
+                                                                <input class="col-lg-12 mb-2 form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus" style="color: green;" type="submit" name="submit" value="Update" />
 
                                                                 <!-- <select class="form-select border" id="autoSizingSelect">
 

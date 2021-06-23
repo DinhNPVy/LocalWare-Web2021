@@ -60,15 +60,6 @@ if ($login_check == false) {
 
 
                 </div>
-                <div class="card" style="text-align: center;">
-                    <!-- <img src="/w3images/team2.jpg" alt="John" style="width:100%"> -->
-
-
-                    <a href="onlline.php">Online Payment</a> <a href="online.php"><i class="fa fa-cc-paypal"></i></i></a>
-
-
-                </div>
-
         <?php
 
             }

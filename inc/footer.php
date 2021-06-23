@@ -1,11 +1,11 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
 <div class="footer-alt bg-dark">
     <div class="container">
         <div class="row align-items-center py-3">
             <div class="col-md-6">
                 <p class="text-white m-0"> © LocalWare_Electronic-2021 Design by Themesdesign</p>
+                <p class="text-white m-0"> Address: 280 An Dương Vương, Phường 4, Quận 5, Thành Phố Hồ Chí Minh</p>
+                <p class="text-white m-0"> Phone: 0827900043</p>
             </div>
             <div class="col-md-6">
                 <div class="float-md-end float-start mt-sm-0 mt-3">
@@ -21,4 +21,3 @@
         </div>
     </div>
 </div>
-<script src="./../js/bootstrap.bundle.min.js"></script>

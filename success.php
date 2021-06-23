@@ -11,6 +11,9 @@ include 'inc/header.php';
 // }
 ?>
 
+<link rel="stylesheet" href="css/styledetails.css">
+<link rel="stylesheet" href="css/style.min.css">
+<link rel="stylesheet" href="css/materialdesignicons.min.css">
 <div class="container">
     <h1 style="color: green;">Success Order</h1>
     <?php

@@ -251,7 +251,7 @@ if (isset($_POST['review_submit'])) {
     <form action="" method="post">
         <p><input type="hidden" value="<?php echo $productid ?>" name="product_id_review"></p>
         <div class="row g-4 mb-2">
-            <div class="col-lg-10">
+            <div class="col-lg-10" style="padding-left: 10%;">
                 <div class="form-floating mb-3">
                     <label class="text-muted">Your name</label>
                     <input type="text" name="reviewname" class="form-control" placeholder="Your name">
@@ -267,7 +267,7 @@ if (isset($_POST['review_submit'])) {
             </div> -->
         </div>
         <div class="row g-4 mb-2">
-            <div class="col-lg-10">
+            <div class="col-lg-10" style="padding-left: 10%;">
                 <div class="form-floating mb-3">
                     <label class="text-muted">Your Review</label>
                     <textarea type="text" name="review" class="form-control" placeholder="Your Message...." style="height: 100px"></textarea>
