@@ -111,14 +111,14 @@ if (isset($_GET['delid'])) {
                                                             if ($result['status'] == 0) {
                                                             ?>
 
-                                                                <a href="?shiftid=<?php echo $result['id'] ?>&price=<?php echo $result['price'] . ''  ?>&time=<?php echo $result['date_order'] ?> ">Transporting</a>
+                                                                <a href="?shiftid=<?php echo $result['id'] ?>&price=<?php echo $result['price'] . '' ?>&time=<?php echo $result['date_order'] ?> ">Transporting</a>
                                                             <?php
                                                             } else if ($result['status'] == 1) {
                                                             ?>
                                                             <?php
 
                                                                 echo 'Đang giao hàng';
-                                                            } elseif ($result['status'] == 2) {
+                                                            } else if ($result['status'] == 2) {
 
                                                             ?>
                                                                 <a href="?delid=<?php echo $result['id'] ?>&price=<?php echo $result['price'] . '' ?>&time=<?php echo $result['date_order'] ?> ">Delete</a>

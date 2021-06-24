@@ -123,9 +123,9 @@ if (isset($_GET['confirmid'])) {
                                                 <td><?php echo 'N/A'  ?></td>
                                             <?php
 
-                                            } elseif ($result['status'] == '1') {
+                                            } elseif ($result['status'] == 1) {
                                             ?>
-                                                <td> <a href="?confirmid=<?php echo $customer_id ?>&price=<?php echo $fm->format_currency($result['price']) . ''  ?>&time=<?php echo $result['date_order'] ?> ">Confirmed</a></td>
+                                                <td> <a href="?confirmid=<?php echo $customer_id ?>&price=<?php echo ($result['price']) . ''  ?>&time=<?php echo $result['date_order'] ?> ">Confirmed</a></td>
                                             <?php
                                             } else {
 

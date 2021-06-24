@@ -1,15 +1,7 @@
 <?php
 include 'inc/header.php';
 ?>
-<?php
-// if (isset($_GET['orderid']) || $_GET['orderid'] == 'order') {
-//     $customer_id = Session::get("customer_id");
-//     $insertOrder = $ct->insertOrder($customer_id);
-//     $delCart = $ct->del_all_dataCart();
-//     // '<script>window.loaction = success.php</script>';
-//     @header("Location: success.php");
-// }
-?>
+
 
 <link rel="stylesheet" href="css/styledetails.css">
 <link rel="stylesheet" href="css/style.min.css">
