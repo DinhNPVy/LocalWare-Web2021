@@ -109,7 +109,7 @@ if (isset($_GET['confirmid'])) {
                                                     echo 'Pending';
                                                 } else if ($result['status'] == 1) {
                                                 ?>
-                                                    <span>Shifted</span>
+                                                    <span>Delivered</span>
 
                                                 <?php
                                                 } else {

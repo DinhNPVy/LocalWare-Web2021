@@ -10,10 +10,10 @@ include_once($filepath . '/../helper/format.php');
 <?php
 $ct = new cart();
 
-if (isset($_GET['shiftid'])) {
-    $id = $_GET['shiftid'];
-    // $product_id = $_GET['productId'];
-    // $quantity = $_GET['quantity'];
+if (isset($_GET['deliveredid'])) {
+    $id = $_GET['deliveredid'];
+    @$product_id = $_GET['productId'];
+    @$quantity = $_GET['quantity'];
     $time = $_GET['time'];
     $price = $_GET['price'];
     $shifted = $ct->shifted($id, $product_id, $quantity, $time, $price);
@@ -111,12 +111,12 @@ if (isset($_GET['delid'])) {
                                                             if ($result['status'] == 0) {
                                                             ?>
 
-                                                                <a href="?shiftid=<?php echo $result['id'] ?>&price=<?php echo $result['price'] . '' ?>&time=<?php echo $result['date_order'] ?> ">Transporting</a>
+                                                                <a href="?deliveredid=<?php echo $result['id'] ?>&price=<?php echo $result['price'] . '' ?>&time=<?php echo $result['date_order'] ?> ">Transporting</a>
                                                             <?php
                                                             } else if ($result['status'] == 1) {
                                                             ?>
                                                             <?php
-                                                                echo 'Đang giao hàng';
+                                                                echo 'Delivering';
                                                             } else if ($result['status'] == 2) {
 
                                                             ?>
