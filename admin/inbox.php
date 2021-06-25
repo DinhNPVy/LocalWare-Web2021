@@ -12,11 +12,11 @@ $ct = new cart();
 
 if (isset($_GET['shiftid'])) {
     $id = $_GET['shiftid'];
-    $productid = $_GET['productId'];
-    $quantity = $_GET['quantity'];
+    // $product_id = $_GET['productId'];
+    // $quantity = $_GET['quantity'];
     $time = $_GET['time'];
     $price = $_GET['price'];
-    $shifted = $ct->shifted($id, $productid, $quantity, $time, $price);
+    $shifted = $ct->shifted($id, $product_id, $quantity, $time, $price);
 }
 
 if (isset($_GET['delid'])) {
@@ -116,7 +116,6 @@ if (isset($_GET['delid'])) {
                                                             } else if ($result['status'] == 1) {
                                                             ?>
                                                             <?php
-
                                                                 echo 'Đang giao hàng';
                                                             } else if ($result['status'] == 2) {
 
